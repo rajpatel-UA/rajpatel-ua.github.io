@@ -1,0 +1,65 @@
+{
+  "profile": "https://scholar.google.com/citations?user=2qoIGecAAAAJ",
+  "updated": "2026-10-28",
+  "citations": 70,
+  "h_index": 4,
+  "i10_index": 3,
+  "publications": 11,
+  "papers": [
+    {
+      "title": "Agentic AI for Cyber Defense: A Survey of Failure Modes, Applications, and Research Opportunities",
+      "year": 2026,
+      "citations": 0
+    },
+    {
+      "title": "AgenticCyOps: Securing Multi-Agentic AI Integration in Enterprise Cyber Operations",
+      "year": 2026,
+      "citations": 13
+    },
+    {
+      "title": "Agentra: A Supervisable Multi-Agent Framework for Enterprise Intrusion Response",
+      "year": 2026,
+      "citations": 3
+    },
+    {
+      "title": "Staying on the Attractor: Supervising Neural Surrogates of 3D Turbulence Where They Leave It",
+      "year": 2026,
+      "citations": 0
+    },
+    {
+      "title": "The Value of Spike Timing: A Leakage-Resistant Benchmark of SNN Design Choices for Network Intrusion Detection",
+      "year": 2026,
+      "citations": 1
+    },
+    {
+      "title": "Towards Secure MLOps: Surveying Attacks, Mitigation Strategies, and Research Challenges",
+      "year": 2026,
+      "citations": 20
+    },
+    {
+      "title": "Where Rules End and Judges Begin: Measuring the Judgment Boundary in Multi-Agent Systems Security",
+      "year": 2026,
+      "citations": 0
+    },
+    {
+      "title": "A Survey of Recent Advancements in Secure Peer-to-Peer Networks",
+      "year": 2025,
+      "citations": 4
+    },
+    {
+      "title": "IRSDA: An Agent-Orchestrated Framework for Enterprise Intrusion Response",
+      "year": 2025,
+      "citations": 1
+    },
+    {
+      "title": "Llmz+: Contextual prompt whitelist principles for agentic llms",
+      "year": 2025,
+      "citations": 5
+    },
+    {
+      "title": "Navigating MLOps: Insights into Maturity, Lifecycle, Tools, and Careers",
+      "year": 2025,
+      "citations": 23
+    }
+  ]
+}

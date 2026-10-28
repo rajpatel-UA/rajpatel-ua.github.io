@@ -1,0 +1,43 @@
+name: Update Google Scholar stats
+
+on:
+  schedule:
+    - cron: "17 9 * * 1"   # Mondays, 09:17 UTC
+  workflow_dispatch:         # "Run workflow" button on the Actions tab
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch Google Scholar profile
+        env:
+          # Optional fallback if Scholar blocks the runner. Add it under
+          # Settings → Secrets and variables → Actions (free key at serpapi.com).
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+        run: python scripts/update_scholar.py
+
+      - name: Commit if the numbers changed
+        run: |
+          if git diff --quiet -- assets/data/scholar.json; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/data/scholar.json
+          git commit -m "Update Google Scholar stats"
+          git push
+          # Ask Pages to rebuild in case the bot push doesn't trigger it.
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" || true
+        env:
+          GH_TOKEN: ${{ github.token }}

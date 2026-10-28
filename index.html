@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Raj Patel · AI Security & Cyber Defense Researcher</title>
+  <meta name="description" content="Raj Patel is a Computer Science PhD student at The University of Alabama researching secure MLOps, agentic AI for cyber defense, and AI-driven intrusion detection and response.">
+  <meta name="author" content="Raj Patel">
+  <meta name="theme-color" content="#0b0b12">
+  <link rel="canonical" href="https://rajpatel-ua.github.io/">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Raj Patel · AI Security & Cyber Defense Researcher">
+  <meta property="og:description" content="PhD student at The University of Alabama researching secure MLOps, agentic AI for cyber defense, and intrusion detection.">
+  <meta property="og:url" content="https://rajpatel-ua.github.io/">
+  <meta property="og:image" content="https://rajpatel-ua.github.io/assets/img/raj-patel.jpg">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script>
+    // Apply saved theme before first paint to avoid a flash.
+    (function () {
+      var t = localStorage.getItem('theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Raj Patel",
+    "jobTitle": "PhD Student in Computer Science",
+    "affiliation": { "@type": "CollegeOrUniversity", "name": "The University of Alabama" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Mississippi State University" },
+      { "@type": "CollegeOrUniversity", "name": "Hinds Community College" }
+    ],
+    "email": "mailto:rpatel38@ua.edu",
+    "url": "https://rajpatel-ua.github.io/",
+    "image": "https://rajpatel-ua.github.io/assets/img/raj-patel.jpg",
+    "knowsAbout": ["Secure MLOps", "AI Security", "Agentic AI", "Intrusion Detection", "Intrusion Response", "Healthcare Cybersecurity"],
+    "sameAs": [
+      "https://scholar.google.com/citations?user=2qoIGecAAAAJ",
+      "https://github.com/rajpatel-UA",
+      "https://eng.ua.edu/eng-directory/raj-patel/"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+      <symbol id="i-scholar" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/><path d="M22 10v6"/></symbol>
+      <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></symbol>
+      <symbol id="i-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+      <symbol id="i-down" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></symbol>
+      <symbol id="i-agents" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></symbol>
+      <symbol id="i-pulse" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/><polyline points="3.5 12 8 12 10 9 13 15 15 12 20.5 12"/></symbol>
+      <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+      <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
+      <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===================== NAV ===================== -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#top" class="brand" aria-label="Raj Patel, back to top">
+        <span class="brand__mark">RP</span>
+        <span class="brand__name">Raj Patel</span>
+      </a>
+
+      <nav class="nav__links" id="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#teaching">Teaching</a>
+        <a href="cv.html" class="nav__cta"><svg class="icon"><use href="#i-file"/></svg> CV</a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="icon-btn" id="theme-toggle" aria-label="Toggle color theme">
+          <svg class="icon icon--sun"><use href="#i-sun"/></svg>
+          <svg class="icon icon--moon"><use href="#i-moon"/></svg>
+        </button>
+        <button class="icon-btn nav__burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+          <svg class="icon icon--open"><use href="#i-menu"/></svg>
+          <svg class="icon icon--close"><use href="#i-close"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="top">
+      <canvas class="hero__canvas" id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero__glow" aria-hidden="true"></div>
+
+      <div class="container hero__grid">
+        <div class="hero__text">
+          <p class="pill reveal">
+            <span class="pill__dot"></span>
+            PhD Student · Computer Science · The University of Alabama
+          </p>
+
+          <h1 class="hero__title reveal">
+            Hi, I'm <span class="grad-text">Raj Patel</span>.
+          </h1>
+
+          <p class="hero__lead reveal">
+            I make AI systems harder to attack, and I build AI that helps defend the enterprise.
+          </p>
+
+          <div class="terminal reveal" aria-label="Current research focus">
+            <span class="terminal__prompt">raj@ua:~$</span>
+            <span class="terminal__cmd">focus --now</span>
+            <span class="terminal__out" id="typewriter">Secure MLOps</span><span class="terminal__caret" aria-hidden="true"></span>
+          </div>
+
+          <div class="hero__ctas reveal">
+            <a href="#research" class="btn btn--primary">
+              Explore my research
+              <svg class="icon"><use href="#i-down"/></svg>
+            </a>
+            <a href="cv.html" class="btn btn--ghost">
+              <svg class="icon"><use href="#i-file"/></svg>
+              View CV
+            </a>
+            <a href="https://scholar.google.com/citations?user=2qoIGecAAAAJ&hl=en" class="btn btn--icon" target="_blank" rel="noopener" aria-label="Google Scholar profile">
+              <svg class="icon"><use href="#i-scholar"/></svg>
+            </a>
+            <a href="mailto:rpatel38@ua.edu" class="btn btn--icon" aria-label="Email Raj">
+              <svg class="icon"><use href="#i-mail"/></svg>
+            </a>
+            <a href="https://github.com/rajpatel-UA" class="btn btn--icon" target="_blank" rel="noopener" aria-label="GitHub profile">
+              <svg class="icon"><use href="#i-github"/></svg>
+            </a>
+          </div>
+
+          <dl class="stats reveal">
+            <div class="stat"><dt>Publications</dt><dd data-count="11" data-scholar="publications">11</dd></div>
+            <div class="stat"><dt>First-author</dt><dd data-count="4">4</dd></div>
+            <div class="stat"><dt>Citations</dt><dd data-count="70" data-scholar="citations">70</dd></div>
+            <div class="stat"><dt>h-index</dt><dd data-count="4" data-scholar="h_index">4</dd></div>
+          </dl>
+          <p class="stats__note reveal" id="scholar-note">Synced weekly from Google Scholar</p>
+        </div>
+
+        <div class="hero__visual reveal">
+          <div class="portrait">
+            <div class="portrait__ring" aria-hidden="true"></div>
+            <div class="portrait__frame">
+              <img src="assets/img/raj-patel.jpg" alt="Portrait of Raj Patel in a burgundy suit, smiling" width="956" height="1400" fetchpriority="high">
+            </div>
+            <div class="chip chip--a">
+              <svg class="icon"><use href="#i-award"/></svg>
+              <div><strong>ACM TAISAP</strong><span>Journal's first accepted manuscript</span></div>
+            </div>
+            <div class="chip chip--b">
+              <svg class="icon"><use href="#i-check"/></svg>
+              <div><strong>IEEE CogMI 2026</strong><span>SNN paper accepted</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-cue" aria-label="Scroll to About">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section" id="about">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow"><span>01</span> About</p>
+          <h2>From server racks to research papers</h2>
+        </header>
+
+        <div class="about">
+          <div class="about__body reveal">
+            <p class="about__intro">
+              I'm a Computer Science PhD student at <strong>The University of Alabama</strong>, advised by
+              <strong>Dr. Shahram Rahimi</strong>. I work on two sides of the same problem: securing
+              the pipelines that build and ship machine-learning models, and putting AI agents to work
+              detecting and responding to attacks on real enterprise networks.
+            </p>
+            <p>
+              I didn't set out to study computers. I began in Mechanical Engineering, took a single
+              programming course, enjoyed it so much that I switched majors, and haven't looked back.
+            </p>
+            <p>
+              Before research, I spent six years as a systems administrator at Mississippi State
+              University. I ran servers, virtual desktops and thousands of user accounts, and I patched
+              systems against live vulnerability reports. That experience shapes how I do research:
+              a defense only counts if it holds up under real deployment constraints and the
+              people who have to maintain it. Today I bring the same mindset to my role as a Systems
+              Analyst in UA's Department of Computer Science.
+            </p>
+            <p>
+              I also enjoy the people side of technology. I've trained student workers, managed a
+              department's social media, and helped plan departmental events.
+            </p>
+
+            <div class="toolbox">
+              <p class="toolbox__label">Toolbox</p>
+              <ul class="tags">
+                <li>Python</li><li>C++</li><li>C#</li><li>PowerShell</li>
+                <li>Adversarial ML</li><li>Multi-agent LLM systems</li><li>Spiking neural networks</li>
+                <li>MITRE ATT&amp;CK · ATLAS · D3FEND</li><li>NIST CSF 2.0</li>
+                <li>OpenStack</li><li>VDI / vGPU</li><li>Active Directory &amp; Group Policy</li>
+                <li>Laravel</li><li>Git</li>
+              </ul>
+            </div>
+          </div>
+
+          <aside class="facts reveal" aria-label="Quick facts">
+            <div class="facts__row">
+              <svg class="icon"><use href="#i-compass"/></svg>
+              <div><span>Focus</span><strong>AI security · Cyber defense · Healthcare security</strong></div>
+            </div>
+            <div class="facts__row">
+              <svg class="icon"><use href="#i-scholar"/></svg>
+              <div><span>Advisor</span><strong>Dr. Shahram Rahimi</strong></div>
+            </div>
+            <div class="facts__row">
+              <svg class="icon"><use href="#i-cpu"/></svg>
+              <div><span>Day job</span><strong><a href="https://eng.ua.edu/eng-directory/raj-patel/" target="_blank" rel="noopener">Systems Analyst II, UA Computer Science</a></strong></div>
+            </div>
+            <div class="facts__row">
+              <svg class="icon"><use href="#i-layers"/></svg>
+              <div><span>Before</span><strong>6 years in systems administration</strong></div>
+            </div>
+            <div class="facts__row">
+              <svg class="icon"><use href="#i-pin"/></svg>
+              <div><span>Based in</span><strong>Cyber Hall, Tuscaloosa, Alabama</strong></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== NEWS ===================== -->
+    <section class="section section--tight" id="news" aria-labelledby="news-title">
+      <div class="container">
+        <div class="news reveal">
+          <h3 class="news__title" id="news-title"><span class="live-dot"></span> Latest</h3>
+          <ol class="news__list">
+            <li><time>Oct 2026</time><p>New preprint: <a href="https://arxiv.org/abs/2610.07657" target="_blank" rel="noopener"><em>Where Rules End and Judges Begin</em></a>, which measures the judgment boundary in multi-agent systems security.</p></li>
+            <li><time>2026</time><p>Our survey <a href="https://www.preprints.org/manuscript/202608.0865" target="_blank" rel="noopener"><em>Agentic AI for Cyber Defense</em></a> received a <strong>minor revision</strong> decision at ACM TAISAP.</p></li>
+            <li><time>2026</time><p><a href="https://arxiv.org/abs/2606.01442" target="_blank" rel="noopener"><em>The Value of Spike Timing</em></a> accepted at <strong>IEEE CogMI 2026</strong>.</p></li>
+            <li><time>Jun 2026</time><p>Released <a href="https://arxiv.org/abs/2606.18325" target="_blank" rel="noopener"><em>Agentra</em></a>, a supervisable multi-agent framework for enterprise intrusion response.</p></li>
+            <li><time>Dec 2025</time><p><a href="https://doi.org/10.1145/3796728" target="_blank" rel="noopener"><em>Towards Secure MLOps</em></a> accepted in <strong>ACM TAISAP</strong>. The editors noted it was the journal's first accepted manuscript.</p></li>
+            <li><time>Dec 2025</time><p>Papers published at <strong>IEEE BigData 2025</strong> (IRSDA) and <strong>ICMLA 2025</strong> (LLMZ+).</p></li>
+            <li><time>Fall 2025</time><p>Transferred my PhD to <strong>The University of Alabama</strong>, continuing with Dr. Shahram Rahimi.</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== RESEARCH ===================== -->
+    <section class="section" id="research">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow"><span>02</span> Research</p>
+          <h2>Securing AI, and AI for security</h2>
+          <p class="section__sub">
+            My work sits where machine learning meets operational security: how ML systems get
+            attacked across their lifecycle, and how autonomous agents can defend networks without
+            taking humans out of the loop.
+          </p>
+        </header>
+
+        <!-- Spotlight -->
+        <article class="spotlight reveal">
+          <div class="spotlight__text">
+            <p class="spotlight__badge"><svg class="icon"><use href="#i-award"/></svg> Featured · First author</p>
+            <h3>Towards Secure MLOps: Surveying Attacks, Mitigation Strategies, and Research Challenges</h3>
+            <p class="spotlight__venue">ACM Transactions on AI Security and Privacy · 2026</p>
+            <p>
+              A 35-page survey that applies MITRE ATLAS, together with MITRE ATT&amp;CK and white and grey
+              literature, to map attacks across the MLOps and LLMOps lifecycle. It introduces a
+              three-family taxonomy, a threat model that runs from black-box outsiders to privileged
+              insiders, and a matching taxonomy of mitigations, each grounded in real incidents and
+              red-team exercises.
+            </p>
+            <p class="spotlight__note">The editors identified it as the journal's <strong>first accepted manuscript</strong>.</p>
+            <div class="spotlight__links">
+              <a class="btn btn--primary btn--sm" href="https://doi.org/10.1145/3796728" target="_blank" rel="noopener">Read the paper <svg class="icon"><use href="#i-arrow"/></svg></a>
+              <span class="mono muted">DOI 10.1145/3796728</span>
+            </div>
+          </div>
+
+          <div class="pipeline" aria-label="The three lifecycle families in the survey, with attack and mitigation counts">
+            <div class="pipeline__stage">
+              <span class="pipeline__num">01</span>
+              <strong>Design &amp; setup</strong>
+              <span class="pipeline__meta">access control · registries · keys · repos</span>
+              <span class="pipeline__counts"><b class="t">8 attacks</b><b class="d">12 mitigations</b></span>
+            </div>
+            <div class="pipeline__link" aria-hidden="true"></div>
+            <div class="pipeline__stage">
+              <span class="pipeline__num">02</span>
+              <strong>Model development &amp; evaluation</strong>
+              <span class="pipeline__meta">data · training · prompts · evaluation</span>
+              <span class="pipeline__counts"><b class="t">9 attacks</b><b class="d">10 mitigations</b></span>
+            </div>
+            <div class="pipeline__link" aria-hidden="true"></div>
+            <div class="pipeline__stage">
+              <span class="pipeline__num">03</span>
+              <strong>Operations</strong>
+              <span class="pipeline__meta">serving · monitoring · CI/CD</span>
+              <span class="pipeline__counts"><b class="t">15 attacks</b><b class="d">13 mitigations</b></span>
+            </div>
+            <div class="pipeline__legend">
+              <span><i class="dot dot--threat"></i>attack techniques mapped</span>
+              <span><i class="dot dot--defense"></i>mitigations mapped</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Themes -->
+        <div class="themes">
+          <article class="theme reveal">
+            <div class="theme__icon"><svg class="icon"><use href="#i-shield"/></svg></div>
+            <h3>Secure MLOps</h3>
+            <p>
+              Threat-modeling the full machine-learning lifecycle, from data and training to deployment and
+              monitoring. Open problems include realistic defense benchmarks, malicious model repositories,
+              and privacy protection.
+            </p>
+            <ul class="theme__papers">
+              <li>ACM TAISAP 2026</li><li>IEEE CAI 2025</li>
+            </ul>
+          </article>
+
+          <article class="theme reveal">
+            <div class="theme__icon"><svg class="icon"><use href="#i-agents"/></svg></div>
+            <h3>Agentic AI for cyber operations</h3>
+            <p>
+              Multi-agent systems that turn IDS, EDR and XDR alerts into supervisable, policy-compliant
+              response plans grounded in MITRE ATT&amp;CK, D3FEND and NIST CSF 2.0. I also study the defenses
+              these agents need themselves.
+            </p>
+            <ul class="theme__papers">
+              <li>Agentra</li><li>IRSDA · BigData '25</li><li>AgenticCyOps</li><li>LLMZ+ · ICMLA '25</li>
+            </ul>
+          </article>
+
+          <article class="theme reveal">
+            <div class="theme__icon"><svg class="icon"><use href="#i-pulse"/></svg></div>
+            <h3>Neuromorphic intrusion detection</h3>
+            <p>
+              A leakage-resistant benchmark of spiking neural networks for network intrusion detection:
+              27 configurations (9 neuron models × 3 spike encodings) on 4 datasets. Spike timing matters:
+              latency coding reliably improves macro-F1.
+            </p>
+            <ul class="theme__papers">
+              <li>IEEE CogMI 2026</li><li>Journal extension in progress</li>
+            </ul>
+          </article>
+
+          <article class="theme reveal">
+            <div class="theme__icon"><svg class="icon"><use href="#i-layers"/></svg></div>
+            <h3>Secure networks &amp; reliable models</h3>
+            <p>
+              A survey of recent advances in secure peer-to-peer networks, and work on supervising
+              neural surrogates of 3D turbulence where they drift off the attractor.
+            </p>
+            <ul class="theme__papers">
+              <li>Secure P2P survey</li><li>Neural surrogates</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Next direction -->
+        <article class="next reveal">
+          <div class="next__icon"><svg class="icon"><use href="#i-heart"/></svg></div>
+          <div class="next__body">
+            <p class="eyebrow eyebrow--inline">Dissertation direction</p>
+            <h3>Federated cyber defense for healthcare</h3>
+            <p>
+              Hospitals, wearables and Internet of Medical Things devices produce sensitive telemetry
+              that shouldn't be centralized. My question is whether update-integrity checks and
+              drift-aware local detection can resist poisoning and evasion at a fixed false-alert
+              budget, with controls mapped to HIPAA Security Rule safeguards.
+            </p>
+            <ul class="tags tags--outline">
+              <li>Healthcare threat model</li><li>Reproducible benchmark</li><li>Federated defense prototype</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow"><span>03</span> Projects</p>
+          <h2>Featured projects</h2>
+          <p class="section__sub">Open a project to see the problem, what we built, and what it showed.</p>
+        </header>
+
+        <div class="projects">
+          <button class="project reveal" data-dialog="dlg-agentra">
+            <span class="project__tag">First author · 2026</span>
+            <span class="project__metric">0.61 <i>→</i> 0.84</span>
+            <span class="project__label">false-positive-aware response F1, with 0% harmful actions</span>
+            <span class="project__title">Agentra</span>
+            <span class="project__desc">A supervisable multi-agent framework for enterprise intrusion response.</span>
+            <span class="project__more">Read more <svg class="icon"><use href="#i-right"/></svg></span>
+          </button>
+
+          <button class="project reveal" data-dialog="dlg-snn">
+            <span class="project__tag">First author · IEEE CogMI 2026</span>
+            <span class="project__metric">27 <i>×</i> 4</span>
+            <span class="project__label">SNN configurations benchmarked across intrusion-detection datasets</span>
+            <span class="project__title">The Value of Spike Timing</span>
+            <span class="project__desc">A leakage-resistant benchmark of spiking neural networks for network intrusion detection.</span>
+            <span class="project__more">Read more <svg class="icon"><use href="#i-right"/></svg></span>
+          </button>
+
+          <button class="project reveal" data-dialog="dlg-cyops">
+            <span class="project__tag">Co-author · 2026</span>
+            <span class="project__metric">≥72%</span>
+            <span class="project__label">fewer exploitable trust boundaries than a flat multi-agent system</span>
+            <span class="project__title">AgenticCyOps</span>
+            <span class="project__desc">Securing multi-agent AI integration in enterprise cyber operations.</span>
+            <span class="project__more">Read more <svg class="icon"><use href="#i-right"/></svg></span>
+          </button>
+
+          <button class="project reveal" data-dialog="dlg-defer">
+            <span class="project__tag">Co-author · 2026</span>
+            <span class="project__metric">30% <i>→</i> 3%</span>
+            <span class="project__label">attack success across four multi-agent domains</span>
+            <span class="project__title">Where Rules End and Judges Begin</span>
+            <span class="project__desc">Measuring where deterministic checks stop and LLM judges must take over.</span>
+            <span class="project__more">Read more <svg class="icon"><use href="#i-right"/></svg></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Project dialogs -->
+      <dialog class="dialog" id="dlg-agentra" aria-labelledby="dlg-agentra-t">
+        <button class="icon-btn dialog__close" aria-label="Close"><svg class="icon"><use href="#i-close"/></svg></button>
+        <p class="dialog__tag">First author · arXiv 2026</p>
+        <h3 id="dlg-agentra-t">Agentra: A Supervisable Multi-Agent Framework for Enterprise Intrusion Response</h3>
+        <h4>The problem</h4>
+        <p>Security teams receive more IDS, EDR and XDR alerts than analysts can triage, and static playbooks can't adapt. Handing response to unsupervised LLM agents trades one risk for another: an agent that overreacts can disrupt the business it is meant to protect.</p>
+        <h4>What we built</h4>
+        <p>A multi-agent intrusion response system in which role-scoped agents turn alerts into response plans mapped to MITRE ATT&amp;CK, MITRE D3FEND and NIST CSF 2.0. A bounded Planner–Validator loop reviews each plan, a security gateway mediates threat-intelligence lookups, actions come from a risk-scored catalog, and every step lands in an append-only audit trail.</p>
+        <h4>What it showed</h4>
+        <p>On 120 security events, the strongest configuration raised false-positive-aware response F1 from 0.61 (a static CACAO v2.0 playbook) to 0.84 and kept the harmful-action rate at the baseline's 0.0%. Planner-only setups overreacted. Analysts stay in the approval loop throughout.</p>
+        <a class="btn btn--primary btn--sm" href="https://arxiv.org/abs/2606.18325" target="_blank" rel="noopener">Read the paper <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </dialog>
+
+      <dialog class="dialog" id="dlg-snn" aria-labelledby="dlg-snn-t">
+        <button class="icon-btn dialog__close" aria-label="Close"><svg class="icon"><use href="#i-close"/></svg></button>
+        <p class="dialog__tag">First author · IEEE CogMI 2026</p>
+        <h3 id="dlg-snn-t">The Value of Spike Timing: A Leakage-Resistant Benchmark of SNN Design Choices for Network Intrusion Detection</h3>
+        <h4>The problem</h4>
+        <p>Spiking neural networks are a promising, energy-efficient option for intrusion detection, but it isn't clear which design choices actually matter. Results can also look better than they are when training and test data aren't cleanly separated.</p>
+        <h4>What we built</h4>
+        <p>A benchmark of 27 SNN configurations, nine neuron models crossed with three spike encodings, evaluated on four network intrusion detection datasets under leakage-resistant protocols.</p>
+        <h4>What it showed</h4>
+        <p>Spike timing matters. Latency coding, which maps a feature's magnitude to when a spike fires, reliably improves macro-F1. Sparse inputs don't guarantee sparse activity inside the network. A journal extension is in progress with Dr. Sayanton Dibbo.</p>
+        <a class="btn btn--primary btn--sm" href="https://arxiv.org/abs/2606.01442" target="_blank" rel="noopener">Read the paper <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </dialog>
+
+      <dialog class="dialog" id="dlg-cyops" aria-labelledby="dlg-cyops-t">
+        <button class="icon-btn dialog__close" aria-label="Close"><svg class="icon"><use href="#i-close"/></svg></button>
+        <p class="dialog__tag">Co-author · arXiv 2026</p>
+        <h3 id="dlg-cyops-t">AgenticCyOps: Securing Multi-Agentic AI Integration in Enterprise Cyber Operations</h3>
+        <h4>The problem</h4>
+        <p>LLM-powered multi-agent systems introduce risks that deterministic pipelines don't have, yet most security research looks only at narrow, prompt-level attacks.</p>
+        <h4>What we built</h4>
+        <p>A breakdown of multi-agent attack surfaces across the component, coordination and protocol layers, plus five defensive principles mapped to NIST, ISO 27001, GDPR and the EU AI Act. We applied them to a Security Operations Center workflow built on the Model Context Protocol.</p>
+        <h4>What it showed</h4>
+        <p>Most documented attacks trace back to tool orchestration and memory management. The design blocks three of four representative attack chains within their first two steps and cuts exploitable trust boundaries by at least 72% compared with a flat multi-agent system.</p>
+        <a class="btn btn--primary btn--sm" href="https://arxiv.org/abs/2603.09134" target="_blank" rel="noopener">Read the paper <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </dialog>
+
+      <dialog class="dialog" id="dlg-defer" aria-labelledby="dlg-defer-t">
+        <button class="icon-btn dialog__close" aria-label="Close"><svg class="icon"><use href="#i-close"/></svg></button>
+        <p class="dialog__tag">Co-author · arXiv 2026</p>
+        <h3 id="dlg-defer-t">Where Rules End and Judges Begin: Measuring the Judgment Boundary in Multi-Agent Systems Security</h3>
+        <h4>The problem</h4>
+        <p>LLM-based multi-agent systems use tools, share memory and delegate tasks while handling adversarial content, but their defenses are usually tested against one attack type at a time.</p>
+        <h4>What we built</h4>
+        <p>A defense organized around five principles: a cascade of 28 deterministic checks handles clear-cut cases, and a panel of four LLM judges resolves the rest.</p>
+        <h4>What it showed</h4>
+        <p>Across four domains, attack success fell from about 30% to about 3%, and the deterministic checks caught 78% of blocked attacks. In security operations, only about a quarter of proposals needed the judges. Rules covered clear policy violations, and judges covered attempts to misrepresent intent. The paper also reports where both approaches fall short.</p>
+        <a class="btn btn--primary btn--sm" href="https://arxiv.org/abs/2610.07657" target="_blank" rel="noopener">Read the paper <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </dialog>
+    </section>
+
+    <!-- ===================== PUBLICATIONS ===================== -->
+    <section class="section" id="publications">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow"><span>04</span> Publications</p>
+          <h2>Papers &amp; preprints</h2>
+          <p class="section__sub">
+            Citation counts sync weekly from <a href="https://scholar.google.com/citations?user=2qoIGecAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.
+          </p>
+        </header>
+
+        <div class="filters reveal" role="group" aria-label="Filter publications">
+          <button class="filter is-active" data-filter="all" aria-pressed="true">All <span>11</span></button>
+          <button class="filter" data-filter="first" aria-pressed="false">First author <span>4</span></button>
+          <button class="filter" data-filter="journal" aria-pressed="false">Journal <span>1</span></button>
+          <button class="filter" data-filter="conference" aria-pressed="false">Conference <span>4</span></button>
+          <button class="filter" data-filter="preprint" aria-pressed="false">Preprints &amp; under review <span>6</span></button>
+        </div>
+
+        <ol class="pubs">
+          <li class="pub reveal" data-type="preprint">
+            <span class="pub__year">2026</span>
+            <div class="pub__body">
+              <h3><a href="https://arxiv.org/abs/2610.07657" target="_blank" rel="noopener">Where Rules End and Judges Begin: Measuring the Judgment Boundary in Multi-Agent Systems Security</a></h3>
+              <p class="pub__authors">S. Mitra, <b>R. Patel</b>, S. Neupane, S. Mittal, M. R. Rahman, S. Rahimi</p>
+              <p class="pub__meta"><span class="badge badge--preprint">Preprint</span> arXiv:2610.07657</p>
+            </div>
+          </li>
+
+          <li class="pub reveal" data-type="preprint">
+            <span class="pub__year">2026</span>
+            <div class="pub__body">
+              <h3><a href="https://arxiv.org/abs/2609.32864" target="_blank" rel="noopener">Staying on the Attractor: Supervising Neural Surrogates of 3D Turbulence Where They Leave It</a></h3>
+              <p class="pub__authors">Y. Dai, S. Mitra, <b>R. Patel</b>, Y. Sun, S. Chen, J. Gong, S. Mittal, S. Rahimi, X. Jia, R. Yu</p>
+              <p class="pub__meta"><span class="badge badge--preprint">Preprint</span> arXiv:2609.32864</p>
+            </div>
+          </li>
+
+          <li class="pub reveal" data-type="preprint">
+            <span class="pub__year">2026</span>
+            <div class="pub__body">
+              <h3><a href="https://www.preprints.org/manuscript/202608.0865" target="_blank" rel="noopener">Agentic AI for Cyber Defense: A Survey of Failure Modes, Applications, and Research Opportunities</a></h3>
+              <p class="pub__authors">S. Mitra, <b>R. Patel</b>, S. Mittal, M. R. Rahman, S. Rahimi</p>
+              <p class="pub__meta"><span class="badge badge--review">Under review</span> ACM TAISAP, minor revision · Preprints.org 202608.0865</p>
+            </div>
+          </li>
+
+          <li class="pub reveal" data-type="conference first">
+            <span class="pub__year">2026</span>
+            <div class="pub__body">
+              <h3><a href="https://arxiv.org/abs/2606.01442" target="_blank" rel="noopener">The Value of Spike Timing: A Leakage-Resistant Benchmark of SNN Design Choices for Network Intrusion Detection</a></h3>
+              <p class="pub__authors"><b>R. Patel</b>, S. Mitra, D. Amebley, T. Akinrele, S. Dibbo, S. Mittal, S. Rahimi</p>
+              <p class="pub__meta"><span class="badge badge--conf">Conference</span> IEEE CogMI 2026 (accepted) <span class="badge badge--first">First author</span></p>
+            </div>
+          </li>
+
+          <li class="pub reveal" data-type="preprint first">
+            <span class="pub__year">2026</span>
+            <div class="pub__body">
+              <h3><a href="https://arxiv.org/abs/2606.18325" target="_blank" rel="noopener">Agentra: A Supervisable Multi-Agent Framework for Enterprise Intrusion Response</a></h3>
+              <p class="pub__authors"><b>R. Patel</b>, S. Mitra, M. Guida, S. Iannucci, S. Mittal, S. Rahimi</p>
+              <p class="pub__meta"><span class="badge badge--preprint">Preprint</span> arXiv:2606.18325 <span class="badge badge--first">First author</span></p>
+            </div>
+          </li>
+
+          <li class="pub reveal" data-type="preprint">
+            <span class="pub__year">2026</span>
+            <div class="pub__body">
+              <h3><a href="https://arxiv.org/abs/2603.09134" target="_blank" rel="noopener">AgenticCyOps: Securing Multi-Agentic AI Integration in Enterprise Cyber Operations</a></h3>
+              <p class="pub__authors">S. Mitra, <b>R. Patel</b>, S. Mittal, M. R. Rahman, S. Rahimi</p>
+              <p class="pub__meta"><span class="badge badge--preprint">Preprint</span> arXiv:2603.09134</p>
+            </div>
+          </li>
+
+          <li class="pub pub--featured reveal" data-type="journal first">
+            <span class="pub__year">2026</span>
+            <div class="pub__body">
+              <h3><a href="https://doi.org/10.1145/3796728" target="_blank" rel="noopener">Towards Secure MLOps: Surveying Attacks, Mitigation Strategies, and Research Challenges</a></h3>
+              <p class="pub__authors"><b>R. Patel</b>, H. Tripathi, J. Stone, N. Amiri Golilarz, S. Mittal, S. Rahimi, V. Chaudhary</p>
+              <p class="pub__meta"><span class="badge badge--journal">Journal</span> ACM Transactions on AI Security and Privacy <span class="badge badge--first">First author</span></p>
+            </div>
+          </li>
+
+          <li class="pub reveal" data-type="conference">
+            <span class="pub__year">2025</span>
+            <div class="pub__body">
+              <h3><a href="https://doi.org/10.1109/BigData66926.2025.11402393" target="_blank" rel="noopener">IRSDA: An Agent-Orchestrated Framework for Enterprise Intrusion Response</a></h3>
+              <p class="pub__authors">D. Panigrahi, <b>R. Patel</b>, S. Mitra, S. Mittal, S. Rahimi</p>
+              <p class="pub__meta"><span class="badge badge--conf">Conference</span> IEEE BigData 2025, pp. 6616–6625 <a href="https://arxiv.org/abs/2511.19644" target="_blank" rel="noopener">arXiv</a></p>
+            </div>
+          </li>
+
+          <li class="pub reveal" data-type="conference">
+            <span class="pub__year">2025</span>
+            <div class="pub__body">
+              <h3><a href="https://doi.org/10.1109/ICMLA66185.2025.00213" target="_blank" rel="noopener">LLMZ+: Contextual Prompt Whitelist Principles for Agentic LLMs</a></h3>
+              <p class="pub__authors">T. Pawelek, <b>R. Patel</b>, C. Crowell, N. Amiri Golilarz, S. Mittal, S. Rahimi, A. Perkins</p>
+              <p class="pub__meta"><span class="badge badge--conf">Conference</span> ICMLA 2025, pp. 1396–1402 <a href="https://arxiv.org/abs/2509.18557" target="_blank" rel="noopener">arXiv</a></p>
+            </div>
+          </li>
+
+          <li class="pub reveal" data-type="preprint first">
+            <span class="pub__year">2025</span>
+            <div class="pub__body">
+              <h3><a href="https://arxiv.org/abs/2509.19539" target="_blank" rel="noopener">A Survey of Recent Advancements in Secure Peer-to-Peer Networks</a></h3>
+              <p class="pub__authors"><b>R. Patel</b>, U. Biswas, S. Kodipaka, W. Carroll, P. Peranich, M. Young</p>
+              <p class="pub__meta"><span class="badge badge--preprint">Preprint</span> arXiv:2509.19539 <span class="badge badge--first">First author</span></p>
+            </div>
+          </li>
+
+          <li class="pub reveal" data-type="conference">
+            <span class="pub__year">2025</span>
+            <div class="pub__body">
+              <h3><a href="https://doi.org/10.1109/CAI64502.2025.00118" target="_blank" rel="noopener">Navigating MLOps: Insights into Maturity, Lifecycle, Tools, and Careers</a></h3>
+              <p class="pub__authors">J. Stone, <b>R. Patel</b>, F. Ghiasi, S. Mittal, S. Rahimi</p>
+              <p class="pub__meta"><span class="badge badge--conf">Conference</span> IEEE CAI 2025, pp. 643–650 <a href="https://arxiv.org/abs/2503.15577" target="_blank" rel="noopener">arXiv</a></p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== EXPERIENCE ===================== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow"><span>05</span> Experience</p>
+          <h2>Built in production, refined in research</h2>
+        </header>
+
+        <div class="exp">
+          <ol class="timeline">
+            <li class="tl reveal">
+              <span class="tl__date">2025 — Now</span>
+              <h3>Ph.D. in Computer Science</h3>
+              <p class="tl__org">The University of Alabama · Advisor: Dr. Shahram Rahimi</p>
+              <p>Research in AI security and AI-driven cyber defense. I began the PhD at Mississippi State in Spring 2024 and transferred to UA in Fall 2025.</p>
+            </li>
+            <li class="tl reveal">
+              <span class="tl__date">May 2025 — Now</span>
+              <h3>Systems Analyst II</h3>
+              <p class="tl__org">The University of Alabama · Department of Computer Science</p>
+              <ul>
+                <li>Plan and configure software systems that support the department's administrative work, including departmental applications.</li>
+                <li>Install, configure and maintain integrations for vendor-supplied software.</li>
+                <li>Work with faculty, staff and campus partners to troubleshoot issues and answer questions quickly.</li>
+              </ul>
+            </li>
+            <li class="tl reveal">
+              <span class="tl__date">2019 — 2025</span>
+              <h3>Assistant Systems Administrator</h3>
+              <p class="tl__org">Mississippi State University</p>
+              <ul>
+                <li>Built a virtual desktop infrastructure with vGPU for <b>300 concurrent users</b>, saving about <b>$25K a year</b> by using open-source software.</li>
+                <li>Automated Active Directory account creation for <b>5,000 students</b> with PowerShell, and managed 1,100+ accounts and their permissions.</li>
+                <li>Installed and configured 25+ servers and 300 workstations, cutting setup time by 25%. Patched against vulnerability reports and enforced security controls through Group Policy.</li>
+                <li>Deployed an OpenStack test cloud for teaching, built a C# tool that halved Crestron NVX installation time, and built a Laravel course-override portal that cut related email by 40%.</li>
+                <li>Supervised and trained a team of four student workers.</li>
+              </ul>
+            </li>
+            <li class="tl reveal">
+              <span class="tl__date">Summer 2018</span>
+              <h3>Junior Software Developer</h3>
+              <p class="tl__org">BeyondTrust</p>
+              <p>Developed shell-sharing remote support software in C++ with a Qt front end and multi-threaded execution.</p>
+            </li>
+            <li class="tl reveal">
+              <span class="tl__date">2017 — 2018</span>
+              <h3>Student Researcher</h3>
+              <p class="tl__org">Center for Advanced Vehicular Systems, Mississippi State</p>
+              <p>Wrote TCP/UDP, I²C, SPI and UART messaging between microcontrollers in C++, and a Python hardware-in-the-loop simulation for vehicle systems.</p>
+            </li>
+          </ol>
+
+          <aside class="edu reveal" aria-label="Education">
+            <h3 class="edu__title"><svg class="icon"><use href="#i-scholar"/></svg> Education</h3>
+            <div class="edu__item">
+              <strong>Ph.D., Computer Science</strong>
+              <span>The University of Alabama · in progress · GPA 4.000</span>
+            </div>
+            <div class="edu__item">
+              <strong>M.S., Computer Science</strong>
+              <span>Mississippi State University · 2022 · GPA 4.00</span>
+            </div>
+            <div class="edu__item">
+              <strong>B.S., Computer Science</strong>
+              <span>Mississippi State University · 2018 · GPA 3.79</span>
+            </div>
+            <div class="edu__item">
+              <strong>A.S.</strong>
+              <span>Hinds Community College · 2015 · GPA 3.81</span>
+            </div>
+
+            <h4 class="edu__sub">Selected graduate coursework</h4>
+            <ul class="tags tags--sm">
+              <li>Adversarial Machine Learning</li>
+              <li>Physics-Guided Machine Learning</li>
+              <li>Computer Algorithms</li>
+              <li>Advanced Cyber Operations</li>
+              <li>Artificial Intelligence</li>
+              <li>Distributed Computing</li>
+              <li>Wireless Networks</li>
+            </ul>
+            <a class="btn btn--ghost btn--sm edu__cv" href="cv.html"><svg class="icon"><use href="#i-file"/></svg> Full CV</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TEACHING ===================== -->
+    <section class="section" id="teaching">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow"><span>06</span> Teaching &amp; Mentoring</p>
+          <h2>How I like to teach</h2>
+          <p class="section__sub">
+            Good teachers changed the direction of my life, and I want to do the same for my students.
+            My teaching portfolio builds my philosophy around a UA course I'm prepared to teach.
+          </p>
+        </header>
+
+        <article class="course reveal">
+          <div class="course__main">
+            <p class="course__code">CS 456 · 3 credit hours · prerequisite CS 465</p>
+            <h3>AI for Cyber Security</h3>
+            <p>
+              A course where students use machine learning to solve security problems, then learn how attackers
+              break those same models. I designed it around three signature assignments, each drawn directly from my research.
+            </p>
+            <div class="course__links">
+              <a class="btn btn--primary btn--sm" href="teaching.html">Read the teaching portfolio <svg class="icon"><use href="#i-right"/></svg></a>
+              <a class="btn btn--ghost btn--sm" href="assets/docs/Raj_Patel_Teaching_Portfolio.pdf" target="_blank" rel="noopener"><svg class="icon"><use href="#i-download"/></svg> PDF</a>
+            </div>
+          </div>
+          <ol class="course__labs">
+            <li><span>Lab</span><strong>Build an intrusion detector, then catch your own data leakage</strong></li>
+            <li><span>Lab</span><strong>Red-team the classifier: evade it, then harden it</strong></li>
+            <li><span>Project</span><strong>Threat-model a real AI pipeline with MITRE ATLAS</strong></li>
+          </ol>
+        </article>
+
+        <div class="principles">
+          <article class="principle reveal">
+            <span class="principle__num">01</span>
+            <h3>Foundations, then freedom</h3>
+            <p>Give students a solid foundation, make it enjoyable, then leave room to explore. One course
+              taught that way turned me from a mechanical engineering major into a computer scientist.</p>
+          </article>
+          <article class="principle reveal">
+            <span class="principle__num">02</span>
+            <h3>Real systems, real stakes</h3>
+            <p>Concepts stick when students see where they're actually used. I tie every topic to a documented
+              incident, real data, or a production system I ran as an administrator.</p>
+          </article>
+          <article class="principle reveal">
+            <span class="principle__num">03</span>
+            <h3>Close the feedback loop</h3>
+            <p>Sharp follow-up questions show me that learning is happening. Minute papers and anonymous
+              mid-semester feedback tell me what to keep and what to change.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact reveal">
+          <div class="contact__glow" aria-hidden="true"></div>
+          <p class="eyebrow"><span>07</span> Contact</p>
+          <h2>Let's build safer AI together</h2>
+          <p class="contact__text">
+            I'm happy to talk about collaborations on AI security, agentic cyber defense,
+            intrusion detection, or healthcare cybersecurity.
+          </p>
+
+          <div class="contact__email">
+            <a href="mailto:rpatel38@ua.edu" class="contact__address">rpatel38@ua.edu</a>
+            <button class="icon-btn" id="copy-email" data-email="rpatel38@ua.edu" aria-label="Copy email address">
+              <svg class="icon icon--copy"><use href="#i-copy"/></svg>
+              <svg class="icon icon--done"><use href="#i-check"/></svg>
+            </button>
+          </div>
+
+          <div class="contact__links">
+            <a class="btn btn--primary" href="mailto:rpatel38@ua.edu"><svg class="icon"><use href="#i-mail"/></svg> Send an email</a>
+            <a class="btn btn--ghost" href="cv.html"><svg class="icon"><use href="#i-file"/></svg> CV</a>
+            <a class="btn btn--ghost" href="https://scholar.google.com/citations?user=2qoIGecAAAAJ&hl=en" target="_blank" rel="noopener"><svg class="icon"><use href="#i-scholar"/></svg> Google Scholar</a>
+            <a class="btn btn--ghost" href="https://github.com/rajpatel-UA" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"/></svg> GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year">2026</span> Raj Patel · Tuscaloosa, Alabama</p>
+      <p class="footer__links"><a href="cv.html">CV</a><a href="teaching.html">Teaching portfolio</a><a href="https://scholar.google.com/citations?user=2qoIGecAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a></p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
