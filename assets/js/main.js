@@ -169,34 +169,18 @@
     reveals.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
-  /* ---------- Count-up stats ---------- */
-  var counters = document.querySelectorAll('[data-count]');
-  function countUp(el) {
-    var suffix = el.getAttribute('data-suffix') || '';
-    var start = null;
-    var duration = 1400;
-    el.dataset.animating = '1';
-    function step(ts) {
-      if (!start) start = ts;
-      var target = parseInt(el.getAttribute('data-count'), 10);
-      var p = motionOff() ? 1 : Math.min((ts - start) / duration, 1);
-      var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(target * eased) + suffix;
-      if (p < 1) requestAnimationFrame(step);
-      else delete el.dataset.animating;
-    }
-    requestAnimationFrame(step);
-  }
-  if (!motionOff() && 'IntersectionObserver' in window) {
-    var countObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          countUp(entry.target);
-          countObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.6 });
-    counters.forEach(function (el) { countObserver.observe(el); });
+  /* ---------- Hero photo: fade in once it has decoded ---------- */
+  var heroEl = document.querySelector('.hero');
+  var heroImg = document.querySelector('.hero__subject img');
+  if (heroEl && heroImg) {
+    var shown = false;
+    var show = function () { if (!shown) { shown = true; heroEl.classList.add('is-ready'); } };
+    var decodeThenShow = function () {
+      if (heroImg.decode) heroImg.decode().then(show, show); else show();
+    };
+    if (heroImg.complete && heroImg.naturalWidth) decodeThenShow();
+    else { heroImg.addEventListener('load', decodeThenShow); heroImg.addEventListener('error', show); }
+    setTimeout(show, 2500);   // never leave the photo hidden on a slow connection
   }
 
   /* ---------- Publication filters ---------- */

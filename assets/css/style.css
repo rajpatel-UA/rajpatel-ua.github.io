@@ -1787,6 +1787,8 @@ h1, h2, h3, h4 { letter-spacing: -.022em; }
   overflow: clip;
 }
 .hero__sticky {
+  /* Photo height drives the gap in the name, so the name always frames the head */
+  --subject-h: min(82vh, 780px);
   position: relative;
   height: 100vh;
   height: 100svh;
@@ -1810,31 +1812,40 @@ h1, h2, h3, h4 { letter-spacing: -.022em; }
   pointer-events: none;
   will-change: transform, opacity;
 }
-.hero__layer--name { z-index: 0; display: flex; justify-content: center; align-items: flex-start; padding-top: calc(var(--nav-h) + 3.5vh); }
+.hero__layer--name { z-index: 0; display: flex; flex-direction: column; align-items: stretch; padding-top: calc(var(--nav-h) + 3.5vh); }
 .hero__layer--subject { z-index: 1; display: flex; justify-content: center; align-items: flex-end; }
 .hero__bigname {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(4rem, 17vw, 16.5rem);
+  /* Width- and height-capped so the "j" never reaches the shoulders on short screens */
+  font-size: clamp(4rem, min(17vw, calc(40vh - 70px)), 16.5rem);
   line-height: .9;
   letter-spacing: -.055em;
   white-space: nowrap;
+  /* "Raj" | head | "Patel": the middle column is the head's width (0.19 of photo height)
+     plus breathing room, shifted left 0.02 to match where the head sits in the photo. */
+  display: grid;
+  grid-template-columns: 1fr calc(var(--subject-h) * .24) 1fr;
+  width: 100%;
+  padding-right: calc(var(--subject-h) * .04);
   background: var(--name-grad);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: heroNameIn 1.4s var(--ease-out) both;
+  animation: heroNameIn .8s var(--ease-out) both;
 }
 .hero__subject {
   display: block;
-  height: min(82vh, 780px);
+  height: var(--subject-h);
   aspect-ratio: 1399 / 2271;
-  -webkit-mask-image: linear-gradient(to bottom, #000 76%, transparent 99%);
-  mask-image: linear-gradient(to bottom, #000 76%, transparent 99%);
-  animation: heroSubjectIn 1.4s .12s var(--ease-out) both;
 }
+/* The bottom fade is baked into the image, so no CSS mask is needed. The photo fades in only
+   after it has finished decoding (main.js adds .is-ready), so it never pops in mid-animation. */
 .hero__subject img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: bottom; }
+.js .hero__subject img { opacity: 0; transform: translate3d(0, 3vh, 0); transition: opacity .7s var(--ease-out), transform .9s var(--ease-out); }
+.js .hero.is-ready .hero__subject img { opacity: 1; transform: none; }
+.motion-paused .hero__subject img { transition: none; }
 .hero__veil { position: absolute; inset: 0; z-index: 3; background: var(--bg); opacity: 0; pointer-events: none; will-change: opacity; }
 
 .hero__content {
@@ -1850,7 +1861,6 @@ h1, h2, h3, h4 { letter-spacing: -.022em; }
   padding-bottom: 7vh;
   will-change: transform, opacity;
 }
-.hero__intro, .hero__aside { animation: heroFadeUp 1s .45s var(--ease-out) both; }
 .hero__aside { grid-column: 3; }
 .hero__content:focus-within { opacity: 1 !important; transform: none !important; }
 .hero__eyebrow {
@@ -1868,9 +1878,8 @@ h1, h2, h3, h4 { letter-spacing: -.022em; }
 .hero__aside .stat dd { font-size: clamp(1.9rem, 2.6vw, 2.4rem); font-weight: 700; letter-spacing: -.03em; }
 .hero__aside .stats__note { margin-top: 14px; }
 
-@keyframes heroNameIn { from { opacity: 0; transform: translate3d(0, 6vh, 0) scale(.96); letter-spacing: -.02em; } }
-@keyframes heroSubjectIn { from { opacity: 0; transform: translate3d(0, 8vh, 0) scale(.97); } }
-@keyframes heroFadeUp { from { opacity: 0; transform: translate3d(0, 24px, 0); } }
+/* Entrance: opacity and transform only, so it stays on the GPU */
+@keyframes heroNameIn { from { opacity: 0; transform: translate3d(0, 3vh, 0); } }
 
 /* Pinned scroll scene on larger screens: the backdrop stays put while the layers move at different speeds */
 @media (min-width: 1200px) {
@@ -1907,9 +1916,9 @@ h1, h2, h3, h4 { letter-spacing: -.022em; }
   .hero__sticky { height: auto; min-height: 0; padding-top: calc(var(--nav-h) + 16px); display: flex; flex-direction: column; }
   .hero__layer { position: relative; inset: auto; }
   .hero__layer--name { padding-top: 0; }
-  .hero__bigname { font-size: clamp(3.4rem, 19vw, 10rem); }
-  .hero__layer--subject { margin-top: -7vw; }
-  .hero__subject { height: min(64svh, 620px); }
+  .hero__sticky { --subject-h: min(64svh, 620px); }
+  .hero__bigname { font-size: clamp(3.4rem, 17vw, 10rem); display: block; width: auto; padding: 0; text-align: center; }
+  .hero__layer--subject { margin-top: 2vw; }
   .hero__content { position: relative; grid-template-columns: 1fr; gap: 28px; padding: 8px 24px 56px; }
   .hero__aside { grid-column: auto; }
   .hero__aside .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -1940,4 +1949,40 @@ h1, h2, h3, h4 { letter-spacing: -.022em; }
 @media (prefers-reduced-motion: reduce) {
   .hero--scene { height: auto; }
   .hero--scene .hero__sticky { position: relative; }
+}
+
+.hero__w1 { grid-column: 1; justify-self: end; }
+.hero__w2 { grid-column: 3; justify-self: start; }
+@media (max-width: 1199px) {
+  .hero__w1::after { content: "\00a0"; }
+}
+
+/* Role line under the name: split around the head like the name, with rules leading toward the photo.
+   Its middle column is wider than the name's so the text also clears the shoulders. */
+.hero__role {
+  display: grid;
+  grid-template-columns: 1fr calc(var(--subject-h) * .5) 1fr;
+  padding-right: calc(var(--subject-h) * .04);
+  margin: clamp(10px, 1.6vh, 18px) 0 0;
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  animation: heroNameIn .8s var(--ease-out) both;
+}
+.hero__role-a { grid-column: 1; justify-self: end; display: inline-flex; align-items: center; gap: 14px; }
+.hero__role-b { grid-column: 3; justify-self: start; display: inline-flex; align-items: center; gap: 14px; }
+.hero__role-a::after, .hero__role-b::before {
+  content: "";
+  width: clamp(28px, 4vw, 64px);
+  height: 1px;
+  background: currentColor;
+  opacity: .7;
+}
+@media (max-width: 1199px) {
+  /* Small screens: the name sits above the photo, so the role line is a simple centered pair of lines */
+  .hero__role { display: block; padding: 0 24px; text-align: center; letter-spacing: .1em; }
+  .hero__role-a, .hero__role-b { display: block; justify-self: auto; }
+  .hero__role-a::after, .hero__role-b::before { display: none; }
 }
