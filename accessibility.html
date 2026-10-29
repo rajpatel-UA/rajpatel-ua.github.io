@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Accessibility · Raj Patel</title>
   <meta name="description" content="Accessibility statement for Raj Patel's academic portfolio: standards, built-in features, known limitations, and how to request content in another format.">
   <meta name="author" content="Raj Patel">
-  <meta name="theme-color" content="#0b0b12">
+  <meta name="theme-color" content="#f5f0e6">
   <link rel="canonical" href="https://rajpatel-ua.github.io/accessibility.html">
 
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/doc.css">
 
   <script>
     (function () {
       var t = localStorage.getItem('theme');
-      if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', t);
       document.documentElement.classList.add('js');
       if (localStorage.getItem('motion') === 'paused') document.documentElement.classList.add('motion-paused');
@@ -45,8 +45,7 @@
   <header class="nav is-scrolled" id="nav">
     <div class="container nav__inner">
       <a href="index.html" class="brand" aria-label="Raj Patel, home">
-        <span class="brand__mark">RP</span>
-        <span class="brand__name">Raj Patel</span>
+        <span class="brand__name">Raj <i>Patel</i></span>
       </a>
       <nav class="nav__links" id="nav-links" aria-label="Primary">
         <a href="index.html#about">About</a>

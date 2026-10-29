@@ -32,7 +32,7 @@
 
   function syncTheme() {
     var light = root.getAttribute('data-theme') === 'light';
-    if (metaTheme) metaTheme.setAttribute('content', light ? '#faf8f5' : '#0b0b12');
+    if (metaTheme) metaTheme.setAttribute('content', light ? '#f5f0e6' : '#141210');
     if (themeBtn) {
       var label = light ? 'Switch to dark theme' : 'Switch to light theme';
       themeBtn.setAttribute('aria-label', label);
@@ -249,6 +249,24 @@
       if (pubStatus) pubStatus.textContent = 'Showing ' + shown + ' of ' + pubs.length + ' publications';
     });
   });
+
+  /* ---------- Portrait: gentle tilt toward the pointer ---------- */
+  var stage = document.querySelector('.portrait__stage');
+  if (stage && window.matchMedia('(hover: hover)').matches) {
+    stage.addEventListener('pointermove', function (e) {
+      if (motionOff()) return;
+      var r = stage.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;   // -0.5 … 0.5
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      stage.style.setProperty('--ry', (x * 8).toFixed(2) + 'deg');
+      stage.style.setProperty('--rx', (-y * 6).toFixed(2) + 'deg');
+      stage.style.setProperty('--bx', (-x * 14).toFixed(1) + 'px');
+      stage.style.setProperty('--by', (-y * 10).toFixed(1) + 'px');
+    });
+    stage.addEventListener('pointerleave', function () {
+      ['--rx', '--ry', '--bx', '--by'].forEach(function (v) { stage.style.removeProperty(v); });
+    });
+  }
 
   /* ---------- Spotlight hover on research cards ---------- */
   document.querySelectorAll('.theme').forEach(function (card) {
