@@ -24,6 +24,7 @@
       if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', t);
       document.documentElement.classList.add('js');
+      if (localStorage.getItem('motion') === 'paused') document.documentElement.classList.add('motion-paused');
     })();
   </script>
 </head>
@@ -37,6 +38,8 @@
       <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></symbol>
       <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
       <symbol id="i-left" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></symbol>
     </defs>
   </svg>
 
@@ -55,16 +58,20 @@
         <a href="index.html#publications">Publications</a>
         <a href="teaching.html">Teaching</a>
         <a href="index.html#service">Service</a>
-        <a href="cv.html" class="nav__cta" aria-current="page"><svg class="icon"><use href="#i-file"/></svg> CV</a>
+        <a href="cv.html" class="nav__cta" aria-current="page"><svg aria-hidden="true" focusable="false" class="icon"><use href="#i-file"/></svg> CV</a>
       </nav>
       <div class="nav__actions">
-        <button class="icon-btn" id="theme-toggle" aria-label="Toggle color theme">
-          <svg class="icon icon--sun"><use href="#i-sun"/></svg>
-          <svg class="icon icon--moon"><use href="#i-moon"/></svg>
+        <button class="icon-btn" id="motion-toggle" aria-pressed="false" aria-label="Pause animations" title="Pause animations">
+          <svg aria-hidden="true" focusable="false" class="icon icon--pause"><use href="#i-pause"/></svg>
+          <svg aria-hidden="true" focusable="false" class="icon icon--play"><use href="#i-play"/></svg>
+        </button>
+        <button class="icon-btn" id="theme-toggle" aria-label="Switch color theme" title="Switch color theme">
+          <svg aria-hidden="true" focusable="false" class="icon icon--sun"><use href="#i-sun"/></svg>
+          <svg aria-hidden="true" focusable="false" class="icon icon--moon"><use href="#i-moon"/></svg>
         </button>
         <button class="icon-btn nav__burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
-          <svg class="icon icon--open"><use href="#i-menu"/></svg>
-          <svg class="icon icon--close"><use href="#i-close"/></svg>
+          <svg aria-hidden="true" focusable="false" class="icon icon--open"><use href="#i-menu"/></svg>
+          <svg aria-hidden="true" focusable="false" class="icon icon--close"><use href="#i-close"/></svg>
         </button>
       </div>
     </div>
@@ -74,10 +81,10 @@
     <section class="page-hero no-print">
       <div class="container">
         <p class="eyebrow">Curriculum Vitae</p>
-        <h1>Curriculum <span class="grad-text">Vitae</span></h1>
+        <p class="page-hero__title">Curriculum <span class="grad-text">Vitae</span></p>
         <div class="page-hero__actions">
-          <a class="btn btn--primary" href="assets/docs/Raj_Patel_CV.pdf" target="_blank" rel="noopener"><svg class="icon"><use href="#i-download"/></svg> Download PDF</a>
-          <a class="btn btn--ghost" href="index.html"><svg class="icon"><use href="#i-left"/></svg> Back to home</a>
+          <a class="btn btn--primary" href="assets/docs/Raj_Patel_CV.pdf" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false" class="icon"><use href="#i-download"/></svg> Download PDF</a>
+          <a class="btn btn--ghost" href="index.html"><svg aria-hidden="true" focusable="false" class="icon"><use href="#i-left"/></svg> Back to home</a>
         </div>
       </div>
     </section>
@@ -300,7 +307,7 @@
   <footer class="footer">
     <div class="container footer__inner">
       <p>© <span id="year">2026</span> Raj Patel · Tuscaloosa, Alabama</p>
-      <p class="footer__links"><a href="index.html">Home</a><a href="teaching.html">Teaching portfolio</a><a href="index.html#contact">Contact</a></p>
+      <p class="footer__links"><a href="index.html">Home</a><a href="teaching.html">Teaching portfolio</a><a href="index.html#contact">Contact</a><a href="accessibility.html">Accessibility</a></p>
     </div>
   </footer>
 

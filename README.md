@@ -9,6 +9,7 @@ index.html                     # Home: about + bio, portfolio index, research, p
                                #       experience, teaching preview, service, contact
 cv.html                        # Curriculum vitae (web version; prints to the PDF below)
 research.html                  # Research statement (AI for healthcare enterprise cybersecurity)
+accessibility.html             # Accessibility statement (WCAG 2.2 AA target, features, how to report a barrier)
 teaching.html                  # Teaching portfolio: autobiography, toolkit, philosophy, CS 456 course
                                #       portfolio, sample lesson, demonstration video, student reviews
 assets/css/style.css           # Site styles, light and dark themes
@@ -47,3 +48,16 @@ Run it locally with `python3 scripts/update_scholar.py`.
   ```
   Or open either page in Chrome and use Print → Save as PDF.
 - **Preview locally:** `python3 -m http.server 8000`, then open http://localhost:8000.
+
+## Keeping it accessible
+
+The site targets [WCAG 2.2](https://www.w3.org/TR/WCAG22/) Level AA (public universities must meet WCAG 2.1 AA under the ADA Title II rule). When you add content:
+
+- **Images:** give every `<img>` an `alt` that says what it shows, or `alt=""` if it is purely decorative.
+- **Video:** upload with accurate captions (not only auto-generated) and link a transcript.
+- **Colors:** use the existing CSS variables. New text colors need at least 4.5:1 contrast against their background in both themes.
+- **Headings:** don't skip levels (an `h2` section contains `h3`s, not `h4`s).
+- **Icons:** inline SVG icons get `aria-hidden="true" focusable="false"`; icon-only buttons need an `aria-label`.
+- **PDFs:** generate them from the HTML pages as described above so they stay tagged.
+- **Check it:** run the free [axe DevTools](https://www.deque.com/axe/devtools/) or [WAVE](https://wave.webaim.org/extension/) browser extension on each page in both themes, and tab through the page with the keyboard.
+- **Statement:** update the "last reviewed" date in `accessibility.html` after a review.

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accessibility · Raj Patel</title>
+  <meta name="description" content="Accessibility statement for Raj Patel's academic portfolio: standards, built-in features, known limitations, and how to request content in another format.">
+  <meta name="author" content="Raj Patel">
+  <meta name="theme-color" content="#0b0b12">
+  <link rel="canonical" href="https://rajpatel-ua.github.io/accessibility.html">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/doc.css">
+
+  <script>
+    (function () {
+      var t = localStorage.getItem('theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+      document.documentElement.classList.add('js');
+      if (localStorage.getItem('motion') === 'paused') document.documentElement.classList.add('motion-paused');
+    })();
+  </script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav is-scrolled" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="brand" aria-label="Raj Patel, home">
+        <span class="brand__mark">RP</span>
+        <span class="brand__name">Raj Patel</span>
+      </a>
+      <nav class="nav__links" id="nav-links" aria-label="Primary">
+        <a href="index.html#about">About</a>
+        <a href="index.html#portfolio">Portfolio</a>
+        <a href="index.html#research">Research</a>
+        <a href="index.html#publications">Publications</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="index.html#service">Service</a>
+        <a href="cv.html" class="nav__cta"><svg aria-hidden="true" focusable="false" class="icon"><use href="#i-file"/></svg> CV</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="icon-btn" id="motion-toggle" aria-pressed="false" aria-label="Pause animations" title="Pause animations">
+          <svg aria-hidden="true" focusable="false" class="icon icon--pause"><use href="#i-pause"/></svg>
+          <svg aria-hidden="true" focusable="false" class="icon icon--play"><use href="#i-play"/></svg>
+        </button>
+        <button class="icon-btn" id="theme-toggle" aria-label="Switch color theme" title="Switch color theme">
+          <svg aria-hidden="true" focusable="false" class="icon icon--sun"><use href="#i-sun"/></svg>
+          <svg aria-hidden="true" focusable="false" class="icon icon--moon"><use href="#i-moon"/></svg>
+        </button>
+        <button class="icon-btn nav__burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+          <svg aria-hidden="true" focusable="false" class="icon icon--open"><use href="#i-menu"/></svg>
+          <svg aria-hidden="true" focusable="false" class="icon icon--close"><use href="#i-close"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Accessibility statement</p>
+        <h1>Built for <span class="grad-text">every visitor</span></h1>
+        <p class="page-hero__lead">
+          I want every student, colleague and visitor to be able to use this site, whatever device, browser or
+          assistive technology they rely on. If something here gets in your way, please tell me.
+        </p>
+        <div class="page-hero__actions">
+          <a class="btn btn--primary" href="mailto:rpatel38@ua.edu?subject=Accessibility%20on%20rajpatel-ua.github.io"><svg aria-hidden="true" focusable="false" class="icon"><use href="#i-mail"/></svg> Report a barrier</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="doc">
+      <section class="doc-section" id="standard">
+        <p class="eyebrow"><span>01</span> Standard</p>
+        <h2>The standard this site follows</h2>
+        <p>
+          This site aims to meet the <a href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noopener">Web Content
+          Accessibility Guidelines (WCAG) 2.2</a> at Level AA. Under the U.S. Department of Justice's ADA Title II rule,
+          public universities must make their web content meet WCAG 2.1 Level AA, and WCAG 2.2 includes all of
+          those requirements.
+        </p>
+      </section>
+
+      <section class="doc-section" id="features">
+        <p class="eyebrow"><span>02</span> Features</p>
+        <h2>What's built in</h2>
+        <ul class="a11y-list">
+          <li><b>Keyboard access</b>Everything works with a keyboard. A "Skip to content" link comes first on every page, and focused items get a clear outline.</li>
+          <li><b>Screen readers</b>Pages use real headings, landmarks and lists. Images have text descriptions, buttons have names, and filters and copy actions are announced.</li>
+          <li><b>Readable contrast</b>Text meets at least a 4.5:1 contrast ratio in both the dark and light themes.</li>
+          <li><b>Light and dark themes</b>Use the sun or moon button in the menu bar. The site also follows your device's setting.</li>
+          <li><b>Motion you control</b>The pause button in the menu bar stops every animation, and the site turns animations off automatically if your device asks for reduced motion.</li>
+          <li><b>Zoom and reflow</b>Text can be enlarged to 200%, and pages reflow to a single column on screens as narrow as 320 pixels.</li>
+          <li><b>Accessible documents</b>The CV, research statement and teaching portfolio PDFs are tagged, with a title and language set, so screen readers can navigate them.</li>
+          <li><b>Captioned video</b>Any video I post will have accurate captions and a transcript.</li>
+          <li><b>No time limits</b>Nothing on the site expires or requires a fast response.</li>
+          <li><b>Clear links</b>Links that open a new tab tell screen-reader users before they're followed.</li>
+        </ul>
+      </section>
+
+      <section class="doc-section" id="testing">
+        <p class="eyebrow"><span>03</span> Testing</p>
+        <h2>How it's checked</h2>
+        <p>
+          Every page is tested with <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener">axe-core</a>
+          against the WCAG 2.2 A and AA rules in both color themes, and color pairs are checked against the contrast
+          formula directly. Headings, focus order, zoom and narrow-screen layouts are also reviewed by hand. This
+          statement was last reviewed on October 29, 2026.
+        </p>
+      </section>
+
+      <section class="doc-section" id="limitations">
+        <p class="eyebrow"><span>04</span> Limitations</p>
+        <h2>Known limitations</h2>
+        <ul class="checklist">
+          <li><b>Other websites.</b> Links to Google Scholar, arXiv, publishers and other sites lead to pages I don't control, and their accessibility may vary.</li>
+          <li><b>Publisher PDFs.</b> Some papers are hosted by publishers as PDFs that may not be fully accessible. I'm glad to send an accessible version of any paper I've written.</li>
+        </ul>
+      </section>
+
+      <section class="doc-section" id="contact">
+        <p class="eyebrow"><span>05</span> Contact</p>
+        <h2>Need something in another format?</h2>
+        <p>
+          Email me at <a href="mailto:rpatel38@ua.edu?subject=Accessibility%20on%20rajpatel-ua.github.io">rpatel38@ua.edu</a>
+          and tell me which page or document you need and the format that works for you, such as accessible Word,
+          large print or plain text. I'll respond as soon as I can.
+        </p>
+        <h3>Students at The University of Alabama</h3>
+        <p>
+          If you need academic accommodations, contact UA's
+          <a href="https://ods.ua.edu/" target="_blank" rel="noopener">Office of Disability Services</a>
+          at 205-348-4285 (voice) or 205-348-3081 (TTY). In any course I teach, I will work with you and ODS to put
+          your accommodations in place.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year">2026</span> Raj Patel · Tuscaloosa, Alabama</p>
+      <p class="footer__links"><a href="index.html">Home</a><a href="teaching.html">Teaching portfolio</a><a href="cv.html">CV</a><a href="accessibility.html" aria-current="page">Accessibility</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

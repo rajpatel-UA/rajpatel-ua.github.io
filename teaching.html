@@ -25,6 +25,7 @@
       if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', t);
       document.documentElement.classList.add('js');
+      if (localStorage.getItem('motion') === 'paused') document.documentElement.classList.add('motion-paused');
     })();
   </script>
 </head>
@@ -40,6 +41,7 @@
       <symbol id="i-left" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
       <symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></symbol>
       <symbol id="i-quote" viewBox="0 0 24 24"><path d="M7 7h4v4c0 3-2 5-4 6"/><path d="M15 7h4v4c0 3-2 5-4 6"/></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></symbol>
     </defs>
   </svg>
 
@@ -58,16 +60,20 @@
         <a href="index.html#publications">Publications</a>
         <a href="teaching.html" class="is-active" aria-current="page">Teaching</a>
         <a href="index.html#service">Service</a>
-        <a href="cv.html" class="nav__cta"><svg class="icon"><use href="#i-file"/></svg> CV</a>
+        <a href="cv.html" class="nav__cta"><svg aria-hidden="true" focusable="false" class="icon"><use href="#i-file"/></svg> CV</a>
       </nav>
       <div class="nav__actions">
-        <button class="icon-btn" id="theme-toggle" aria-label="Toggle color theme">
-          <svg class="icon icon--sun"><use href="#i-sun"/></svg>
-          <svg class="icon icon--moon"><use href="#i-moon"/></svg>
+        <button class="icon-btn" id="motion-toggle" aria-pressed="false" aria-label="Pause animations" title="Pause animations">
+          <svg aria-hidden="true" focusable="false" class="icon icon--pause"><use href="#i-pause"/></svg>
+          <svg aria-hidden="true" focusable="false" class="icon icon--play"><use href="#i-play"/></svg>
+        </button>
+        <button class="icon-btn" id="theme-toggle" aria-label="Switch color theme" title="Switch color theme">
+          <svg aria-hidden="true" focusable="false" class="icon icon--sun"><use href="#i-sun"/></svg>
+          <svg aria-hidden="true" focusable="false" class="icon icon--moon"><use href="#i-moon"/></svg>
         </button>
         <button class="icon-btn nav__burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
-          <svg class="icon icon--open"><use href="#i-menu"/></svg>
-          <svg class="icon icon--close"><use href="#i-close"/></svg>
+          <svg aria-hidden="true" focusable="false" class="icon icon--open"><use href="#i-menu"/></svg>
+          <svg aria-hidden="true" focusable="false" class="icon icon--close"><use href="#i-close"/></svg>
         </button>
       </div>
     </div>
@@ -84,8 +90,8 @@
           of Alabama: <strong>CS 456, AI for Cyber Security</strong>.
         </p>
         <div class="page-hero__actions">
-          <a class="btn btn--primary" href="assets/docs/Raj_Patel_Teaching_Portfolio.pdf" target="_blank" rel="noopener"><svg class="icon"><use href="#i-download"/></svg> Download PDF</a>
-          <a class="btn btn--ghost" href="index.html#teaching"><svg class="icon"><use href="#i-left"/></svg> Back to home</a>
+          <a class="btn btn--primary" href="assets/docs/Raj_Patel_Teaching_Portfolio.pdf" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false" class="icon"><use href="#i-download"/></svg> Download PDF</a>
+          <a class="btn btn--ghost" href="index.html#teaching"><svg aria-hidden="true" focusable="false" class="icon"><use href="#i-left"/></svg> Back to home</a>
         </div>
         <ul class="toc" aria-label="On this page">
           <li><a href="#autobiography">Teaching autobiography</a></li>
@@ -110,7 +116,7 @@
 
         <div class="qa">
           <article class="qa__item">
-            <p class="qa__q"><span>Q1</span> How did you learn to teach?</p>
+            <h3 class="qa__q"><span>Q1</span> How did you learn to teach?</h3>
             <p>
               Mostly by watching good teachers and paying attention to what worked for me as a student. The professors I
               learned the most from grounded every idea in a real example. One showed us how soft computing was used in
@@ -125,7 +131,7 @@
           </article>
 
           <article class="qa__item">
-            <p class="qa__q"><span>Q2</span> How did this help develop your PCK?</p>
+            <h3 class="qa__q"><span>Q2</span> How did this help develop your PCK?</h3>
             <p>
               It taught me to build a bank of several examples for every concept, so that if one doesn't land, another
               will. In security and AI, the best examples are real incidents and real data, and I know many of them first
@@ -141,7 +147,7 @@
           </article>
 
           <article class="qa__item">
-            <p class="qa__q"><span>Q3</span> How can you continue to develop your PCK?</p>
+            <h3 class="qa__q"><span>Q3</span> How can you continue to develop your PCK?</h3>
             <p>
               By treating every class as data. I'll read students' comments and minute papers for what they actually
               retained, not just what they enjoyed. I'll ask faculty colleagues which techniques and technologies keep
@@ -161,7 +167,7 @@
         <div class="toolkit">
           <article class="card">
             <p class="card__kicker">People</p>
-            <h4>Faculty I turn to about teaching CS</h4>
+            <h3>Faculty I turn to about teaching CS</h3>
             <ul class="mini-list">
               <li>Dr. Shahram Rahimi</li>
               <li>Dr. Mahmoud Mahmoud</li>
@@ -170,7 +176,7 @@
           </article>
           <article class="card">
             <p class="card__kicker">Journals</p>
-            <h4>Teaching scholarship I read</h4>
+            <h3>Teaching scholarship I read</h3>
             <ul class="mini-list">
               <li><em>College Teaching</em></li>
               <li><em>Journal on Excellence in College Teaching</em></li>
@@ -179,7 +185,7 @@
           </article>
           <article class="card">
             <p class="card__kicker">Conferences</p>
-            <h4>Where teachers meet</h4>
+            <h3>Where teachers meet</h3>
             <ul class="mini-list">
               <li>Lilly Conference on College and University Teaching</li>
               <li>IEEE Frontiers in Education (FIE)</li>
@@ -188,7 +194,7 @@
           </article>
           <article class="card">
             <p class="card__kicker">Books</p>
-            <h4>On my shelf</h4>
+            <h3>On my shelf</h3>
             <ul class="mini-list">
               <li><em>McKeachie's Teaching Tips</em> (Svinicki &amp; McKeachie)</li>
               <li><em>The New Science of Learning</em> (Doyle &amp; Zakrajsek)</li>
@@ -196,7 +202,7 @@
           </article>
           <article class="card">
             <p class="card__kicker">Online tools</p>
-            <h4>Resources I use</h4>
+            <h3>Resources I use</h3>
             <ul class="mini-list">
               <li>K. Patricia Cross Academy (teaching technique videos)</li>
               <li>UA teaching development resources</li>
@@ -207,7 +213,7 @@
           </article>
           <article class="card">
             <p class="card__kicker">Preparation &amp; mentoring</p>
-            <h4>Experience so far</h4>
+            <h3>Experience so far</h3>
             <ul class="mini-list">
               <li>AHE 603, College and University Teaching, UA (Fall 2026)</li>
               <li>Supervised and trained four student workers at Mississippi State (2019–2025), improving team efficiency by 40% through documentation</li>
@@ -364,7 +370,8 @@
         <h3>Course map</h3>
         <div class="table-wrap">
           <table class="doc-table">
-            <thead><tr><th>Weeks</th><th>Module</th><th>Topics</th><th>Hands-on work</th><th>Outcome</th></tr></thead>
+            <caption class="sr-only">Course map: weeks, modules, topics, hands-on work and the outcome each supports</caption>
+            <thead><tr><th scope="col">Weeks</th><th scope="col">Module</th><th scope="col">Topics</th><th scope="col">Hands-on work</th><th scope="col">Outcome</th></tr></thead>
             <tbody>
               <tr><td>1–2</td><td>Foundations</td><td>Threat models, the ML pipeline, MITRE ATT&amp;CK and ATLAS, authorization and ethics</td><td>Lab 0: sandbox setup and acceptable-use agreement</td><td class="num">1 &amp; 2</td></tr>
               <tr><td>3–5</td><td>ML for intrusion detection</td><td>Flow features, public IDS datasets, class imbalance, false-alert budgets, data leakage</td><td>Lab 1: build a detector, then break your own evaluation</td><td class="num">1</td></tr>
@@ -380,7 +387,8 @@
         <h3>Assessment</h3>
         <div class="table-wrap">
           <table class="doc-table">
-            <thead><tr><th>Component</th><th>Weight</th><th>Why it's there</th><th>Outcome</th></tr></thead>
+            <caption class="sr-only">Assessment components, weights, purpose and the outcome each measures</caption>
+            <thead><tr><th scope="col">Component</th><th scope="col">Weight</th><th scope="col">Why it's there</th><th scope="col">Outcome</th></tr></thead>
             <tbody>
               <tr><td>Labs (4)</td><td class="num">35%</td><td>Hands-on skill; each lab ends with a short written reflection</td><td class="num">1 &amp; 2</td></tr>
               <tr><td>Team project</td><td class="num">30%</td><td>Proposal, checkpoint, final report and presentation</td><td class="num">2</td></tr>
@@ -400,19 +408,19 @@
         <div class="cards">
           <article class="card">
             <p class="card__kicker">Lab 1 · Outcome 1</p>
-            <h4>Build it, then break your evaluation</h4>
+            <h3>Build it, then break your evaluation</h3>
             <p>Students train an intrusion detector with a random split, then re-evaluate with time- and host-based splits under a fixed false-alert budget. A one-page memo explains the gap.</p>
             <p class="card__meta">From my leakage-resistant SNN benchmark (IEEE CogMI 2026)</p>
           </article>
           <article class="card">
             <p class="card__kicker">Lab 3 · Outcome 2</p>
-            <h4>Red-team the classifier</h4>
+            <h3>Red-team the classifier</h3>
             <p>Students attack their own Lab 1 detector with evasion and poisoning inside the sandbox, then harden it with adversarial training and measure what the defense costs on clean data.</p>
             <p class="card__meta">From my adversarial ML coursework and the Secure MLOps mitigation taxonomy</p>
           </article>
           <article class="card">
             <p class="card__kicker">Team project · Outcome 2</p>
-            <h4>Threat-model a real AI pipeline</h4>
+            <h3>Threat-model a real AI pipeline</h3>
             <p>Teams pick an open-source ML system, map its attack surface across design and setup, development and operations, and propose prioritized mitigations with MITRE ATLAS.</p>
             <p class="card__meta">From my Secure MLOps survey (ACM TAISAP 2026)</p>
           </article>
@@ -431,7 +439,8 @@
         </p>
         <div class="table-wrap">
           <table class="doc-table">
-            <thead><tr><th>Minutes</th><th>Activity</th><th>What students do</th></tr></thead>
+            <caption class="sr-only">Sample lesson timeline: minutes, activity and what students do</caption>
+            <thead><tr><th scope="col">Minutes</th><th scope="col">Activity</th><th scope="col">What students do</th></tr></thead>
             <tbody>
               <tr><td>0–5</td><td>Hook</td><td>Live poll: a detector scores 99% accuracy. Would you deploy it?</td></tr>
               <tr><td>5–20</td><td>Mini-lecture</td><td>Base rates and false-alert math: 1% false positives × 1 million flows a day = 10,000 false alarms</td></tr>
@@ -449,14 +458,15 @@
            To publish the video, replace the .video__placeholder div with:
            <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="Teaching demonstration by Raj Patel"
                    allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-           and remove "no-print" from this section so the PDF mentions it. -->
+           Upload the video with accurate captions (not only auto-generated ones) and link a transcript below it.
+           Then remove "no-print" from this section so the PDF mentions it. -->
       <section class="doc-section no-print" id="video">
         <p class="eyebrow"><span>07</span> Demonstration</p>
         <h2>Teaching demonstration</h2>
         <p class="doc-section__sub">A recorded mini-lesson showing how I teach.</p>
         <div class="video">
           <div class="video__placeholder">
-            <span class="video__play"><svg class="icon"><use href="#i-play"/></svg></span>
+            <span class="video__play"><svg aria-hidden="true" focusable="false" class="icon"><use href="#i-play"/></svg></span>
             <strong>Video coming soon</strong>
             <span>My teaching demonstration will be posted here.</span>
           </div>
@@ -476,7 +486,7 @@
         <p class="doc-section__sub">Feedback from students I have taught and mentored.</p>
         <div class="reviews">
           <figure class="review review--empty">
-            <svg class="icon review__mark"><use href="#i-quote"/></svg>
+            <svg aria-hidden="true" focusable="false" class="icon review__mark"><use href="#i-quote"/></svg>
             <blockquote>Student feedback will be added here.</blockquote>
             <figcaption><strong>Coming soon</strong><span>Teaching and mentoring feedback</span></figcaption>
           </figure>
@@ -491,6 +501,7 @@
           <li><b>Many paths into computing.</b> I started at a community college and changed majors, so I design for transfer students and career changers. Optional refresher notebooks fill gaps in ML background, and office hours run as open lab time.</li>
           <li><b>More than one way in.</b> Every lab has a written guide and a recorded walkthrough. Team roles (attacker, defender, reporter) rotate so everyone practices each skill.</li>
           <li><b>Authorized, contained practice.</b> Offensive techniques happen only in isolated sandboxes under a signed acceptable-use agreement. We discuss authorization, responsible disclosure and the law, and point students to CS 247, Cyber Law and Ethics.</li>
+          <li><b>Accessible by design.</b> Captioned videos with transcripts, screen-reader-friendly slides and tagged PDFs, alt text on every figure, and color-safe charts. Labs run in virtual machines reached from any browser, so no special hardware is needed. Students registered with UA's <a href="https://ods.ua.edu/" target="_blank" rel="noopener">Office of Disability Services</a> receive their accommodations promptly, and the syllabus explains how to request them.</li>
           <li><b>Transparent grading.</b> Rubrics are published with each assignment, and frequent low-stakes work reduces the weight of any single exam.</li>
           <li><b>Visible feedback loops.</b> Weekly minute papers and a mid-semester survey, with a "you said, I changed" summary shared back with the class.</li>
         </ul>
@@ -501,7 +512,7 @@
   <footer class="footer">
     <div class="container footer__inner">
       <p>© <span id="year">2026</span> Raj Patel · Tuscaloosa, Alabama</p>
-      <p class="footer__links"><a href="index.html">Home</a><a href="research.html">Research statement</a><a href="cv.html">CV</a><a href="index.html#contact">Contact</a></p>
+      <p class="footer__links"><a href="index.html">Home</a><a href="research.html">Research statement</a><a href="cv.html">CV</a><a href="index.html#contact">Contact</a><a href="accessibility.html">Accessibility</a></p>
     </div>
   </footer>
 
