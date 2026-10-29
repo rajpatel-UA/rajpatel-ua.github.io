@@ -14,8 +14,9 @@ teaching.html                  # Teaching portfolio: autobiography, toolkit, phi
                                #       portfolio, sample lesson, demonstration video, student reviews
 assets/css/style.css           # Site styles, light and dark themes
 assets/css/doc.css             # CV / teaching page layout and print (PDF) styles
-assets/js/main.js              # Theme, nav, animations, publication filters, project dialogs, live Scholar numbers
+assets/js/main.js              # Theme, motion toggle, nav, scroll-scene fallback, filters, dialogs, live Scholar numbers
 assets/data/scholar.json       # Citation stats, refreshed weekly by the GitHub Action
+assets/img/raj-cutout-*.avif/.webp  # Hero photo with the background removed (640/1000/1400 px)
 assets/docs/*.pdf              # Downloadable CV, research statement and teaching portfolio
 scripts/update_scholar.py      # Pulls the Google Scholar profile into scholar.json
 .github/workflows/scholar.yml  # Runs the script every Monday and commits changes
@@ -61,3 +62,7 @@ The site targets [WCAG 2.2](https://www.w3.org/TR/WCAG22/) Level AA (public univ
 - **PDFs:** generate them from the HTML pages as described above so they stay tagged.
 - **Check it:** run the free [axe DevTools](https://www.deque.com/axe/devtools/) or [WAVE](https://wave.webaim.org/extension/) browser extension on each page in both themes, and tab through the page with the keyboard.
 - **Statement:** update the "last reviewed" date in `accessibility.html` after a review.
+
+## Motion and performance
+
+The hero is a pinned scroll scene: your photo, the large name and the intro move at different speeds as the page scrolls. It uses CSS scroll-driven animations (`animation-timeline`), which run on the GPU in Chrome, Edge and Safari; Firefox gets an equivalent JavaScript fallback. Everything animates only `transform` and `opacity`, so the browser never has to re-layout the page while scrolling. If you change the CSS or JS, bump the `?v=` number on the `<link>` and `<script>` tags in each HTML page so browsers fetch the new files instead of a cached copy.

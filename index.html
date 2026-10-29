@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Raj Patel · AI Security & Cyber Defense Researcher</title>
   <meta name="description" content="Raj Patel is a Computer Science PhD student at The University of Alabama researching secure MLOps, agentic AI for cyber defense, and AI-driven intrusion detection and response.">
   <meta name="author" content="Raj Patel">
-  <meta name="theme-color" content="#f5f0e6">
+  <meta name="theme-color" content="#051416">
   <link rel="canonical" href="https://rajpatel-ua.github.io/">
 
   <meta property="og:type" content="profile">
@@ -17,17 +17,18 @@
   <meta name="twitter:card" content="summary">
 
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="image" type="image/avif" imagesrcset="assets/img/raj-cutout-640.avif 640w, assets/img/raj-cutout-1000.avif 1000w, assets/img/raj-cutout-1400.avif 1400w" imagesizes="(max-width: 1199px) 40vh, 51vh" fetchpriority="high">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261029e">
 
   <script>
     // Apply saved theme before first paint to avoid a flash.
     (function () {
       var t = localStorage.getItem('theme');
-      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', t);
       document.documentElement.classList.add('js');
       if (localStorage.getItem('motion') === 'paused') document.documentElement.classList.add('motion-paused');
@@ -127,22 +128,26 @@
 
   <main id="main">
     <!-- ===================== HERO ===================== -->
-    <section class="hero" id="top">
-      <div class="hero__glow" aria-hidden="true"></div>
+    <section class="hero hero--scene" id="top" aria-labelledby="hero-name">
+      <div class="hero__sticky">
+        <div class="hero__backdrop" aria-hidden="true"></div>
 
-      <div class="container hero__grid">
-        <div class="hero__text">
-          <p class="hero__eyebrow reveal">PhD Student · Computer Science · The University of Alabama</p>
+        <div class="hero__layer hero__layer--name">
+          <h1 class="hero__bigname" id="hero-name">Raj Patel</h1>
+        </div>
 
-          <h1 class="hero__title reveal">
-            Hi, I'm<br><em class="hero__name">Raj Patel.</em>
-          </h1>
+        <div class="hero__layer hero__layer--subject">
+          <picture class="hero__subject">
+            <source type="image/avif" srcset="assets/img/raj-cutout-640.avif 640w, assets/img/raj-cutout-1000.avif 1000w, assets/img/raj-cutout-1400.avif 1400w" sizes="(max-width: 1199px) 40vh, 51vh">
+            <img src="assets/img/raj-cutout-1000.webp" srcset="assets/img/raj-cutout-640.webp 640w, assets/img/raj-cutout-1000.webp 1000w, assets/img/raj-cutout-1400.webp 1400w" sizes="(max-width: 1199px) 40vh, 51vh" width="1399" height="2271" alt="Raj Patel in a burgundy suit, smiling" fetchpriority="high">
+          </picture>
+        </div>
 
-          <p class="hero__lead reveal">
-            I make AI systems harder to attack, and I build AI that helps defend the enterprise.
-          </p>
-
-          <div class="hero__ctas reveal">
+        <div class="container hero__content">
+          <div class="hero__intro">
+            <p class="hero__eyebrow">PhD Student · Computer Science · The University of Alabama</p>
+            <p class="hero__lead">I make AI systems harder to attack, and I build AI that helps defend the enterprise.</p>
+            <div class="hero__ctas">
             <a href="#research" class="btn btn--primary">
               Explore my research
               <svg aria-hidden="true" focusable="false" class="icon"><use href="#i-down"/></svg>
@@ -160,38 +165,21 @@
             <a href="https://github.com/rajpatel-UA" class="btn btn--icon" target="_blank" rel="noopener" aria-label="GitHub profile">
               <svg aria-hidden="true" focusable="false" class="icon"><use href="#i-github"/></svg>
             </a>
+            </div>
           </div>
-
-          <dl class="stats reveal">
+          <div class="hero__aside">
+            <dl class="stats">
             <div class="stat"><dt>Publications</dt><dd data-count="11" data-scholar="publications">11</dd></div>
             <div class="stat"><dt>First-author</dt><dd data-count="4">4</dd></div>
             <div class="stat"><dt>Citations</dt><dd data-count="70" data-scholar="citations">70</dd></div>
             <div class="stat"><dt>h-index</dt><dd data-count="4" data-scholar="h_index">4</dd></div>
           </dl>
-          <p class="stats__note reveal" id="scholar-note">Synced weekly from Google Scholar</p>
+            <p class="stats__note" id="scholar-note">Synced weekly from Google Scholar</p>
+          </div>
         </div>
 
-        <div class="hero__visual reveal">
-          <figure class="portrait">
-            <div class="portrait__stage">
-              <div class="portrait__block" aria-hidden="true"></div>
-              <div class="portrait__frame">
-                <img src="assets/img/raj-patel.jpg" alt="Portrait of Raj Patel in a burgundy suit, smiling" width="956" height="1400" fetchpriority="high">
-              </div>
-              <svg class="portrait__seal" viewBox="0 0 136 136" aria-hidden="true" focusable="false">
-                <defs><path id="seal-path" d="M68,68 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0"/></defs>
-                <g class="seal__ring"><text class="seal__text"><textPath href="#seal-path" textLength="312" lengthAdjust="spacing">AI SECURITY · CYBER DEFENSE · SECURE MLOPS · </textPath></text></g>
-                <text class="seal__mono" x="68" y="77" text-anchor="middle">RP</text>
-              </svg>
-            </div>
-            <figcaption class="portrait__caption"><b>Fig. 1</b> · Raj Patel, Tuscaloosa, Alabama</figcaption>
-          </figure>
-        </div>
+        <div class="hero__veil" aria-hidden="true"></div>
       </div>
-
-      <a href="#about" class="scroll-cue" aria-label="Scroll to About">
-        <span></span>
-      </a>
     </section>
 
     <!-- ===================== ABOUT ===================== -->
@@ -913,6 +901,6 @@
 
   <div class="toast" id="toast" aria-hidden="true"></div>
 
-  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/main.js?v=20261029e" defer></script>
 </body>
 </html>

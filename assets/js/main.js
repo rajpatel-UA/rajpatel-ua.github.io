@@ -32,7 +32,7 @@
 
   function syncTheme() {
     var light = root.getAttribute('data-theme') === 'light';
-    if (metaTheme) metaTheme.setAttribute('content', light ? '#f5f0e6' : '#141210');
+    if (metaTheme) metaTheme.setAttribute('content', light ? '#f3f7f6' : '#051416');
     if (themeBtn) {
       var label = light ? 'Switch to dark theme' : 'Switch to light theme';
       themeBtn.setAttribute('aria-label', label);
@@ -75,11 +75,29 @@
   var burger = document.getElementById('nav-burger');
   var links = document.getElementById('nav-links');
 
-  function onScroll() {
-    nav.classList.toggle('is-scrolled', window.scrollY > 12);
+  /* ---------- Scroll work, batched into one animation frame ---------- */
+  var heroScene = document.querySelector('.hero--scene');
+  var nativeScroll = window.CSS && CSS.supports && CSS.supports('animation-timeline: view()');
+  var desktop = window.matchMedia('(min-width: 1200px)');
+  var ticking = false;
+
+  function onFrame() {
+    ticking = false;
+    var y = window.scrollY;
+    nav.classList.toggle('is-scrolled', y > 12);
+    // Fallback for browsers without scroll-driven animations: drive the hero scene with --p (0 → 1).
+    if (heroScene && !nativeScroll && desktop.matches && !motionOff()) {
+      var range = heroScene.offsetHeight - window.innerHeight;
+      var p = range > 0 ? Math.min(Math.max(y / range, 0), 1) : 0;
+      heroScene.style.setProperty('--p', p.toFixed(4));
+    }
   }
-  onScroll();
+  function onScroll() {
+    if (!ticking) { ticking = true; requestAnimationFrame(onFrame); }
+  }
+  onFrame();
   window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
 
   function setMenu(open) {
     links.classList.toggle('is-open', open);
@@ -181,51 +199,6 @@
     counters.forEach(function (el) { countObserver.observe(el); });
   }
 
-  /* ---------- Typewriter (visual only; screen readers get a static list) ---------- */
-  var tw = document.getElementById('typewriter');
-  var phrases = [
-    'Secure MLOps',
-    'Agentic AI for cyber defense',
-    'Enterprise intrusion response',
-    'Spiking neural networks for IDS',
-    'Federated defense for healthcare'
-  ];
-
-  if (tw) {
-    var pi = 0;
-    var ci = phrases[0].length;
-    var deleting = true;
-    var tick = function () {
-      if (motionOff()) {
-        // Hold the current phrase, fully written, until animations resume.
-        tw.textContent = phrases[pi];
-        ci = phrases[pi].length;
-        deleting = true;
-        setTimeout(tick, 800);
-        return;
-      }
-      if (deleting) {
-        ci--;
-        tw.textContent = phrases[pi].slice(0, ci);
-        if (ci <= 0) {
-          deleting = false;
-          pi = (pi + 1) % phrases.length;
-        }
-        setTimeout(tick, 32);
-      } else {
-        ci++;
-        tw.textContent = phrases[pi].slice(0, ci);
-        if (ci >= phrases[pi].length) {
-          deleting = true;
-          setTimeout(tick, 2200);
-        } else {
-          setTimeout(tick, 55 + Math.random() * 40);
-        }
-      }
-    };
-    setTimeout(tick, 2200);
-  }
-
   /* ---------- Publication filters ---------- */
   var filters = document.querySelectorAll('.filter');
   var pubs = document.querySelectorAll('.pub');
@@ -249,24 +222,6 @@
       if (pubStatus) pubStatus.textContent = 'Showing ' + shown + ' of ' + pubs.length + ' publications';
     });
   });
-
-  /* ---------- Portrait: gentle tilt toward the pointer ---------- */
-  var stage = document.querySelector('.portrait__stage');
-  if (stage && window.matchMedia('(hover: hover)').matches) {
-    stage.addEventListener('pointermove', function (e) {
-      if (motionOff()) return;
-      var r = stage.getBoundingClientRect();
-      var x = (e.clientX - r.left) / r.width - 0.5;   // -0.5 … 0.5
-      var y = (e.clientY - r.top) / r.height - 0.5;
-      stage.style.setProperty('--ry', (x * 8).toFixed(2) + 'deg');
-      stage.style.setProperty('--rx', (-y * 6).toFixed(2) + 'deg');
-      stage.style.setProperty('--bx', (-x * 14).toFixed(1) + 'px');
-      stage.style.setProperty('--by', (-y * 10).toFixed(1) + 'px');
-    });
-    stage.addEventListener('pointerleave', function () {
-      ['--rx', '--ry', '--bx', '--by'].forEach(function (v) { stage.style.removeProperty(v); });
-    });
-  }
 
   /* ---------- Spotlight hover on research cards ---------- */
   document.querySelectorAll('.theme').forEach(function (card) {
@@ -369,157 +324,4 @@
   /* ---------- Footer year ---------- */
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
-
-  /* ---------- Hero network canvas (decorative) ---------- */
-  var canvas = document.getElementById('hero-canvas');
-  if (!canvas || !canvas.getContext) return;
-
-  var ctx = canvas.getContext('2d');
-  var dpr = Math.min(window.devicePixelRatio || 1, 2);
-  var W = 0, H = 0, nodes = [], running = false, rafId = null, heroVisible = true;
-  var pointer = { x: -9999, y: -9999 };
-  var LINK = 140;
-
-  function color(name) {
-    return getComputedStyle(root).getPropertyValue(name).trim();
-  }
-  var palette = {};
-  function readPalette() {
-    palette.a = color('--accent');
-    palette.b = color('--accent-2');
-    palette.s = color('--signal');
-    palette.line = root.getAttribute('data-theme') === 'light' ? '40,20,50' : '200,190,230';
-  }
-
-  function resize() {
-    var rect = canvas.getBoundingClientRect();
-    W = rect.width;
-    H = rect.height;
-    canvas.width = W * dpr;
-    canvas.height = H * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-    var count = Math.min(90, Math.round((W * H) / 16000));
-    nodes = [];
-    for (var i = 0; i < count; i++) {
-      var r = Math.random();
-      nodes.push({
-        x: Math.random() * W,
-        y: Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: (Math.random() - 0.5) * 0.35,
-        r: r < 0.12 ? 2.6 : 1.4,
-        c: r < 0.08 ? 'a' : r < 0.14 ? 'b' : r < 0.18 ? 's' : null
-      });
-    }
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
-    var still = motionOff();
-
-    for (var i = 0; i < nodes.length; i++) {
-      var n = nodes[i];
-      if (!still) {
-        n.x += n.vx;
-        n.y += n.vy;
-        if (n.x < 0 || n.x > W) n.vx *= -1;
-        if (n.y < 0 || n.y > H) n.vy *= -1;
-      }
-
-      for (var j = i + 1; j < nodes.length; j++) {
-        var m = nodes[j];
-        var dx = n.x - m.x, dy = n.y - m.y;
-        var d2 = dx * dx + dy * dy;
-        if (d2 < LINK * LINK) {
-          var alpha = (1 - Math.sqrt(d2) / LINK) * 0.35;
-          ctx.strokeStyle = 'rgba(' + palette.line + ',' + alpha + ')';
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(n.x, n.y);
-          ctx.lineTo(m.x, m.y);
-          ctx.stroke();
-        }
-      }
-
-      var pdx = n.x - pointer.x, pdy = n.y - pointer.y;
-      var pd = Math.sqrt(pdx * pdx + pdy * pdy);
-      if (pd < 180 && !still) {
-        ctx.strokeStyle = palette.a;
-        ctx.globalAlpha = (1 - pd / 180) * 0.6;
-        ctx.beginPath();
-        ctx.moveTo(n.x, n.y);
-        ctx.lineTo(pointer.x, pointer.y);
-        ctx.stroke();
-        ctx.globalAlpha = 1;
-      }
-
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-      if (n.c) {
-        ctx.fillStyle = palette[n.c];
-        ctx.shadowColor = palette[n.c];
-        ctx.shadowBlur = 12;
-      } else {
-        ctx.fillStyle = 'rgba(' + palette.line + ',.55)';
-        ctx.shadowBlur = 0;
-      }
-      ctx.fill();
-      ctx.shadowBlur = 0;
-    }
-
-    if (running) rafId = requestAnimationFrame(draw);
-  }
-
-  function start() {
-    if (running || motionOff()) return;
-    running = true;
-    rafId = requestAnimationFrame(draw);
-  }
-  function stop() {
-    running = false;
-    if (rafId) cancelAnimationFrame(rafId);
-  }
-
-  readPalette();
-  resize();
-  draw();
-
-  var resizeTimer;
-  window.addEventListener('resize', function () {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function () { resize(); if (!running) draw(); }, 150);
-  });
-
-  var hero = canvas.parentElement;
-  hero.addEventListener('pointermove', function (e) {
-    var r = canvas.getBoundingClientRect();
-    pointer.x = e.clientX - r.left;
-    pointer.y = e.clientY - r.top;
-  });
-  hero.addEventListener('pointerleave', function () {
-    pointer.x = pointer.y = -9999;
-  });
-
-  // Re-read colors when the theme changes.
-  new MutationObserver(function () {
-    readPalette();
-    if (!running) draw();
-  }).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
-
-  // Only animate while the hero is on screen, the tab is visible, and motion is allowed.
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      heroVisible = entries[0].isIntersecting;
-      heroVisible && !document.hidden ? start() : stop();
-    }).observe(hero);
-  } else {
-    start();
-  }
-  document.addEventListener('visibilitychange', function () {
-    !document.hidden && heroVisible ? start() : stop();
-  });
-  document.addEventListener('motionchange', function () {
-    if (motionOff()) { stop(); draw(); } else if (heroVisible && !document.hidden) start();
-  });
 })();
