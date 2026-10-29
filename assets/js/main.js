@@ -68,7 +68,7 @@
   var reveals = document.querySelectorAll('.reveal');
 
   // Stagger siblings that enter together.
-  document.querySelectorAll('.themes, .principles, .hero__text, .pubs, .timeline, .projects').forEach(function (group) {
+  document.querySelectorAll('.themes, .principles, .hero__text, .pubs, .timeline, .projects, .pgrid, .service').forEach(function (group) {
     Array.prototype.forEach.call(group.querySelectorAll(':scope > .reveal'), function (el, i) {
       el.style.setProperty('--delay', Math.min(i * 0.08, 0.4) + 's');
     });
@@ -266,6 +266,23 @@
       })
       .catch(function () { /* keep the static numbers */ });
   }
+
+  /* ---------- Copy buttons (bio, etc.) ---------- */
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var src = document.querySelector(btn.getAttribute('data-copy'));
+      if (!src || !navigator.clipboard) return;
+      var text = Array.prototype.map.call(src.querySelectorAll('p'), function (p) {
+        return p.textContent.replace(/\s+/g, ' ').trim();
+      }).join('\n\n');
+      navigator.clipboard.writeText(text).then(function () {
+        var label = btn.textContent;
+        btn.textContent = 'Copied';
+        btn.classList.add('is-copied');
+        setTimeout(function () { btn.textContent = label; btn.classList.remove('is-copied'); }, 1800);
+      });
+    });
+  });
 
   /* ---------- Footer year ---------- */
   var year = document.getElementById('year');

@@ -98,11 +98,11 @@
 
       <nav class="nav__links" id="nav-links" aria-label="Primary">
         <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
         <a href="#research">Research</a>
-        <a href="#projects">Projects</a>
         <a href="#publications">Publications</a>
-        <a href="#experience">Experience</a>
-        <a href="#teaching">Teaching</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="#service">Service</a>
         <a href="cv.html" class="nav__cta"><svg class="icon"><use href="#i-file"/></svg> CV</a>
       </nav>
 
@@ -266,6 +266,29 @@
             </div>
           </aside>
         </div>
+
+        <div class="bio reveal" id="bio">
+          <div class="bio__head">
+            <h3>Bio</h3>
+            <p>For introductions, programs and announcements.</p>
+          </div>
+          <div class="bio__grid">
+            <article class="bio__card">
+              <div class="bio__bar"><span>Short bio</span><button class="copy-btn" data-copy="#bio-short">Copy</button></div>
+              <div id="bio-short">
+                <p>Raj Patel is a Ph.D. student in Computer Science at The University of Alabama, advised by Dr. Shahram Rahimi, and a Systems Analyst II in UA's Department of Computer Science. Patel's research focuses on the security of AI systems and on AI for enterprise cyber defense, including secure MLOps, supervised agentic intrusion response, and federated intrusion detection for healthcare.</p>
+              </div>
+            </article>
+            <article class="bio__card">
+              <div class="bio__bar"><span>Full bio</span><button class="copy-btn" data-copy="#bio-full">Copy</button></div>
+              <div id="bio-full">
+                <p>Raj Patel is a Ph.D. student in Computer Science at The University of Alabama (UA), advised by Dr. Shahram Rahimi, and a Systems Analyst II in UA's Department of Computer Science. Patel's research examines how machine-learning systems are attacked across their lifecycle and how AI agents can help defend enterprise networks without removing human oversight.</p>
+                <p>Patel is the first author of "Towards Secure MLOps," the first manuscript accepted at ACM Transactions on AI Security and Privacy. Further work on agentic intrusion response, multi-agent AI security and spiking neural networks for intrusion detection has been published or accepted at IEEE BigData, ICMLA, IEEE CogMI and the AIDC workshop at ACSAC. Patel's dissertation research focuses on federated cyber defense for healthcare enterprises.</p>
+                <p>Patel holds B.S. and M.S. degrees in Computer Science from Mississippi State University and spent six years there as a systems administrator before turning to research. A single programming course is what first drew Patel from mechanical engineering to computing.</p>
+              </div>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -283,6 +306,29 @@
             <li><time>Dec 2025</time><p>Papers published at <strong>IEEE BigData 2025</strong> (IRSDA) and <strong>ICMLA 2025</strong> (LLMZ+).</p></li>
             <li><time>Fall 2025</time><p>Transferred my PhD to <strong>The University of Alabama</strong>, continuing with Dr. Shahram Rahimi.</p></li>
           </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PORTFOLIO ===================== -->
+    <section class="section" id="portfolio">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">Portfolio</p>
+          <h2>Portfolio at a glance</h2>
+          <p class="section__sub">Every part of my academic portfolio, in one place.</p>
+        </header>
+        <div class="pgrid">
+          <a class="ptile reveal" href="#bio"><span class="ptile__num">01</span><strong>Bio</strong><span>Short and full versions, ready to copy</span></a>
+          <a class="ptile reveal" href="cv.html"><span class="ptile__num">02</span><strong>Vitae</strong><span>Full curriculum vitae, with PDF</span></a>
+          <a class="ptile reveal" href="#publications"><span class="ptile__num">03</span><strong>Publications</strong><span>11 papers with live citation counts</span></a>
+          <a class="ptile reveal" href="research.html"><span class="ptile__num">04</span><strong>Research statement</strong><span>AI for healthcare enterprise cybersecurity</span></a>
+          <a class="ptile reveal" href="#service"><span class="ptile__num">05</span><strong>Service &amp; reviewing</strong><span>Peer review and department service</span></a>
+          <a class="ptile reveal" href="teaching.html#autobiography"><span class="ptile__num">06</span><strong>Teaching autobiography</strong><span>Starter questions and my teaching toolkit</span></a>
+          <a class="ptile reveal" href="teaching.html#philosophy"><span class="ptile__num">07</span><strong>Teaching philosophy</strong><span>Built on five sentence starters</span></a>
+          <a class="ptile reveal" href="teaching.html#course"><span class="ptile__num">08</span><strong>Course portfolio</strong><span>CS 456: one goal, two objectives, two outcomes</span></a>
+          <a class="ptile reveal" href="teaching.html#video"><span class="ptile__num">09</span><strong>Teaching demonstration</strong><span>A recorded mini-lesson</span></a>
+          <a class="ptile reveal" href="teaching.html#reviews"><span class="ptile__num">10</span><strong>Student reviews</strong><span>What students say</span></a>
         </div>
       </div>
     </section>
@@ -417,6 +463,7 @@
             <ul class="tags tags--outline">
               <li>Healthcare threat model</li><li>Reproducible benchmark</li><li>Federated defense prototype</li>
             </ul>
+            <a class="btn btn--primary btn--sm next__link" href="research.html">Read my research statement <svg class="icon"><use href="#i-right"/></svg></a>
           </div>
         </article>
       </div>
@@ -751,10 +798,12 @@
             <h3>AI for Cyber Security</h3>
             <p>
               A course where students use machine learning to solve security problems, then learn how attackers
-              break those same models. I designed it around three signature assignments, each drawn directly from my research.
+              break those same models. My course portfolio defines one goal, two objectives and two measurable
+              outcomes, built around three signature assignments drawn from my research.
             </p>
             <div class="course__links">
-              <a class="btn btn--primary btn--sm" href="teaching.html">Read the teaching portfolio <svg class="icon"><use href="#i-right"/></svg></a>
+              <a class="btn btn--primary btn--sm" href="teaching.html">Teaching portfolio <svg class="icon"><use href="#i-right"/></svg></a>
+              <a class="btn btn--ghost btn--sm" href="teaching.html#course">Course portfolio</a>
               <a class="btn btn--ghost btn--sm" href="assets/docs/Raj_Patel_Teaching_Portfolio.pdf" target="_blank" rel="noopener"><svg class="icon"><use href="#i-download"/></svg> PDF</a>
             </div>
           </div>
@@ -788,12 +837,51 @@
       </div>
     </section>
 
+    <!-- ===================== SERVICE ===================== -->
+    <section class="section" id="service">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow"><span>07</span> Service</p>
+          <h2>Service to the field and community</h2>
+          <p class="section__sub">Peer review for the research community, and service to the departments I've worked in.</p>
+        </header>
+        <div class="service">
+          <!-- Reviewer: replace the svc__empty paragraph with a list such as
+               <ul class="svc__venues"><li><strong>Venue name</strong><span>Reviewer · 2026</span></li></ul> -->
+          <article class="svc reveal" id="reviewer">
+            <p class="svc__kicker">Peer review</p>
+            <h3>Reviewer</h3>
+            <p class="svc__empty">Journals and conferences I review for will be listed here.</p>
+          </article>
+          <article class="svc reveal">
+            <p class="svc__kicker">Department</p>
+            <h3>Mississippi State University</h3>
+            <ul class="svc__list">
+              <li>Managed and rebranded the department's social media on Facebook, LinkedIn, X and Instagram, with student designers</li>
+              <li>Helped plan departmental social events</li>
+              <li>Worked with research labs, including Esports, PATENT, AIR, Hi5, RAPTOR and Cybersecurity, on their technology and facility needs</li>
+            </ul>
+            <p class="svc__meta">2019 – 2025</p>
+          </article>
+          <article class="svc reveal">
+            <p class="svc__kicker">Mentoring</p>
+            <h3>Student workers</h3>
+            <ul class="svc__list">
+              <li>Trained and supervised four student workers</li>
+              <li>Wrote the documentation and access procedures they learned from, improving team efficiency by 40%</li>
+            </ul>
+            <p class="svc__meta">Mississippi State University · 2019 – 2025</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- ===================== CONTACT ===================== -->
     <section class="section" id="contact">
       <div class="container">
         <div class="contact reveal">
           <div class="contact__glow" aria-hidden="true"></div>
-          <p class="eyebrow"><span>07</span> Contact</p>
+          <p class="eyebrow"><span>08</span> Contact</p>
           <h2>Let's build safer AI together</h2>
           <p class="contact__text">
             I'm happy to talk about collaborations on AI security, agentic cyber defense,
@@ -822,7 +910,7 @@
   <footer class="footer">
     <div class="container footer__inner">
       <p>© <span id="year">2026</span> Raj Patel · Tuscaloosa, Alabama</p>
-      <p class="footer__links"><a href="cv.html">CV</a><a href="teaching.html">Teaching portfolio</a><a href="https://scholar.google.com/citations?user=2qoIGecAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a></p>
+      <p class="footer__links"><a href="cv.html">CV</a><a href="research.html">Research statement</a><a href="teaching.html">Teaching portfolio</a><a href="https://scholar.google.com/citations?user=2qoIGecAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a></p>
     </div>
   </footer>
 

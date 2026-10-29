@@ -80,7 +80,7 @@
 /* ---------- Info grids, tables, cards ---------- */
 .glance {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
   overflow: hidden;
   border-radius: var(--radius);
@@ -147,7 +147,7 @@
   background: var(--surface);
   border: 1px solid var(--border);
 }
-.card__kicker {
+.card .card__kicker {
   font-family: var(--font-mono);
   font-size: .68rem;
   text-transform: uppercase;
@@ -224,6 +224,7 @@
 .cv-updated { margin-top: 32px !important; font-family: var(--font-mono); font-size: .75rem; color: var(--faint) !important; }
 
 @media screen and (max-width: 760px) {
+  .glance { grid-template-columns: 1fr 1fr; }
   .statement, .cv-paper { padding: 28px 22px; }
   .cards, .cards--2 { grid-template-columns: 1fr; }
   .cv-entry { grid-template-columns: 1fr; }
@@ -297,3 +298,156 @@
 
 /* Align page headers with the document column. */
 .page-hero .container { max-width: 920px; }
+
+/* ==========================================================================
+   Teaching / research page components
+   ========================================================================== */
+.qa { display: grid; gap: 18px; }
+.qa__item {
+  padding: 28px 30px;
+  border-radius: var(--radius);
+  background: var(--surface-solid);
+  border: 1px solid var(--border);
+}
+.qa__q {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px !important;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.qa__q span {
+  font-family: var(--font-mono);
+  font-size: .76rem;
+  font-weight: 500;
+  color: var(--accent);
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--accent-soft);
+}
+.qa__item p:not(.qa__q) { color: var(--muted); margin-bottom: .9rem; }
+.qa__item p:last-child { margin-bottom: 0; }
+
+.toolkit { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.mini-list { list-style: none; display: grid; gap: 8px; }
+.mini-list li { position: relative; padding-left: 16px; font-size: .93rem; color: var(--muted); line-height: 1.55; }
+.mini-list li::before { content: ""; position: absolute; left: 0; top: .62em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+/* Goal → objectives → outcomes */
+.gob { display: grid; gap: 16px; margin-top: 28px; }
+.gob__row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.gob .gob__label {
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--accent);
+  margin-bottom: 8px !important;
+}
+.gob__goal {
+  padding: 28px 30px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--surface-solid), var(--surface-solid)) padding-box,
+    var(--grad) border-box;
+}
+.gob__text { font-family: var(--font-display); font-size: clamp(1.15rem, 2vw, 1.4rem); font-weight: 600; line-height: 1.4; margin: 0; }
+.gob__card {
+  padding: 22px 24px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.gob__card p { color: var(--muted); margin: 0; line-height: 1.7; }
+.gob__card b { color: var(--text); }
+.gob__card--outcome { border-left: 3px solid var(--signal); }
+.gob .gob__card--outcome .gob__label { color: var(--signal); }
+.gob__measure { margin-top: 12px !important; padding-top: 12px; border-top: 1px dashed var(--border); font-size: .9rem; }
+
+.rq {
+  margin: 0 0 20px;
+  padding: 26px 30px;
+  border-radius: var(--radius);
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--text);
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--surface-solid), var(--surface-solid)) padding-box,
+    var(--grad) border-box;
+}
+
+/* Teaching video */
+.video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(400px 220px at 80% 20%, var(--plum-soft), transparent 70%),
+    radial-gradient(400px 220px at 10% 90%, var(--accent-soft), transparent 70%),
+    var(--surface-solid);
+}
+.video iframe, .video video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  color: var(--muted);
+}
+.video__placeholder strong { font-family: var(--font-display); font-size: 1.3rem; color: var(--text); }
+.video__play {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  background: var(--grad);
+  color: #fff;
+  box-shadow: 0 12px 40px -10px var(--accent);
+}
+.video__play .icon { width: 26px; height: 26px; fill: currentColor; margin-left: 4px; }
+
+/* Student reviews */
+.reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.review {
+  position: relative;
+  margin: 0;
+  padding: 26px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.review__mark { width: 28px; height: 28px; color: var(--accent); margin-bottom: 10px; }
+.review blockquote { margin: 0 0 16px; font-size: 1.02rem; line-height: 1.7; color: var(--text); }
+.review figcaption strong { display: block; font-weight: 600; }
+.review figcaption span { font-size: .85rem; color: var(--faint); }
+.review--empty { border-style: dashed; border-color: var(--border-strong); }
+.review--empty blockquote { color: var(--faint); }
+
+@media screen and (max-width: 760px) {
+  .toolkit, .gob__row { grid-template-columns: 1fr; }
+  .qa__item, .gob__goal, .rq { padding: 22px; }
+}
+@media print {
+  .qa__item, .gob__goal, .gob__card, .rq { padding: 10px 14px; break-inside: avoid; }
+  .toolkit { gap: 10px; }
+  .toolkit .card { break-inside: avoid; }
+  .gob__text, .rq { font-size: 11.5pt; }
+}
+
+.card .card__kicker { margin-bottom: 6px; }
+@media print { .card .card__kicker { font-size: 7.5pt; } }
