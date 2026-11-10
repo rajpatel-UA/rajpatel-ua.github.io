@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261029h">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261110a">
 
   <script>
     // Apply saved theme before first paint to avoid a flash.
@@ -146,6 +146,7 @@
 
         <div class="container hero__content">
           <div class="hero__intro">
+            <a class="hero__honor" href="#awards"><svg aria-hidden="true" focusable="false" class="icon"><use href="#i-award"/></svg> 2× Best Student Paper Award · 2026</a>
             <p class="hero__lead">I make AI systems harder to attack, and I build AI that helps defend the enterprise.</p>
             <div class="hero__ctas">
             <a href="#research" class="btn btn--primary">
@@ -169,9 +170,9 @@
           </div>
           <div class="hero__aside">
             <dl class="stats">
-            <div class="stat"><dt>Publications</dt><dd data-count="11" data-scholar="publications">11</dd></div>
+            <div class="stat"><dt>Publications</dt><dd data-count="12" data-scholar="publications">12</dd></div>
             <div class="stat"><dt>First-author</dt><dd data-count="4">4</dd></div>
-            <div class="stat"><dt>Citations</dt><dd data-count="70" data-scholar="citations">70</dd></div>
+            <div class="stat"><dt>Citations</dt><dd data-count="77" data-scholar="citations">77</dd></div>
             <div class="stat"><dt>h-index</dt><dd data-count="4" data-scholar="h_index">4</dd></div>
           </dl>
             <p class="stats__note" id="scholar-note">Synced weekly from Google Scholar</p>
@@ -179,6 +180,36 @@
         </div>
 
         <div class="hero__veil" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ===================== AWARDS ===================== -->
+    <section class="section section--awards" id="awards" aria-labelledby="awards-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">Recognition</p>
+          <h2 id="awards-title">Two Best Student Paper Awards in 2026</h2>
+        </header>
+        <div class="awards">
+          <article class="award reveal">
+            <div class="award__icon"><svg aria-hidden="true" focusable="false" class="icon"><use href="#i-award"/></svg></div>
+            <p class="award__kicker">Best Student Paper Award · First author</p>
+            <h3 class="award__venue">IEEE CogMI 2026</h3>
+            <p class="award__conf">8th IEEE International Conference on Cognitive Machine Intelligence · San Jose, CA · November 2026</p>
+            <p class="award__paper"><a href="https://arxiv.org/abs/2606.01442" target="_blank" rel="noopener">The Value of Spike Timing: A Leakage-Resistant Benchmark of SNN Design Choices for Network Intrusion Detection</a></p>
+            <p class="award__authors"><b>R. Patel</b>, S. Mitra, D. Amebley, T. Akinrele, S. Dibbo, S. Mittal, S. Rahimi</p>
+            <a class="award__cert" href="assets/docs/awards/CogMI-2026-Best-Student-Paper.pdf" target="_blank" rel="noopener">View certificate (PDF)</a>
+          </article>
+          <article class="award reveal">
+            <div class="award__icon"><svg aria-hidden="true" focusable="false" class="icon"><use href="#i-award"/></svg></div>
+            <p class="award__kicker">Best Student Paper Award · Co-author</p>
+            <h3 class="award__venue">IEEE TPS 2026</h3>
+            <p class="award__conf">8th IEEE International Conference on Trust, Privacy and Security in Intelligent Systems, and Applications · San Jose, CA · November 2026</p>
+            <p class="award__paper"><a href="https://github.com/micheleguidaa/early-nids-artifact" target="_blank" rel="noopener">Shortcut Learning in Early Intrusion Detection: Header Fingerprints Across Four Datasets</a></p>
+            <p class="award__authors">M. Guida, S. Iannucci, <b>R. Patel</b>, S. Rahimi, S. Mittal, P. Merialdo</p>
+            <a class="award__cert" href="assets/docs/awards/TPS-2026-Best-Student-Paper.pdf" target="_blank" rel="noopener">View certificate (PDF)</a>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -260,14 +291,14 @@
             <article class="bio__card">
               <div class="bio__bar"><span>Short bio</span><button class="copy-btn" data-copy="#bio-short">Copy</button></div>
               <div id="bio-short">
-                <p>Raj Patel is a Ph.D. student in Computer Science at The University of Alabama, advised by Dr. Shahram Rahimi, and a Systems Analyst II in UA's Department of Computer Science. Patel's research focuses on the security of AI systems and on AI for enterprise cyber defense, including secure MLOps, supervised agentic intrusion response, and federated intrusion detection for healthcare.</p>
+                <p>Raj Patel is a Ph.D. student in Computer Science at The University of Alabama, advised by Dr. Shahram Rahimi, and a Systems Analyst II in UA's Department of Computer Science. Patel's research focuses on the security of AI systems and on AI for enterprise cyber defense, including secure MLOps, supervised agentic intrusion response, and federated intrusion detection for healthcare. Patel received two Best Student Paper Awards in 2026, at IEEE CogMI and IEEE TPS.</p>
               </div>
             </article>
             <article class="bio__card">
               <div class="bio__bar"><span>Full bio</span><button class="copy-btn" data-copy="#bio-full">Copy</button></div>
               <div id="bio-full">
                 <p>Raj Patel is a Ph.D. student in Computer Science at The University of Alabama (UA), advised by Dr. Shahram Rahimi, and a Systems Analyst II in UA's Department of Computer Science. Patel's research examines how machine-learning systems are attacked across their lifecycle and how AI agents can help defend enterprise networks without removing human oversight.</p>
-                <p>Patel is the first author of "Towards Secure MLOps," the first manuscript accepted at ACM Transactions on AI Security and Privacy. Further work on agentic intrusion response, multi-agent AI security and spiking neural networks for intrusion detection has been published or accepted at IEEE BigData, ICMLA, IEEE CogMI and the AIDC workshop at ACSAC. Patel's dissertation research focuses on federated cyber defense for healthcare enterprises.</p>
+                <p>Patel is the first author of "Towards Secure MLOps," the first manuscript accepted at ACM Transactions on AI Security and Privacy. Further work on agentic intrusion response, multi-agent AI security and spiking neural networks for intrusion detection has been published or accepted at IEEE BigData, ICMLA, IEEE CogMI, IEEE TPS and the AIDC workshop at ACSAC. In 2026, Patel received the Best Student Paper Award at IEEE CogMI as first author, and shared the Best Student Paper Award at IEEE TPS as a co-author. Patel's dissertation research focuses on federated cyber defense for healthcare enterprises.</p>
                 <p>Patel holds B.S. and M.S. degrees in Computer Science from Mississippi State University and spent six years there as a systems administrator before turning to research. A single programming course is what first drew Patel from mechanical engineering to computing.</p>
               </div>
             </article>
@@ -282,6 +313,8 @@
         <div class="news reveal">
           <h2 class="news__title" id="news-title"><span class="live-dot"></span> Latest</h2>
           <ol class="news__list">
+            <li><time>Nov 2026</time><p><a href="https://arxiv.org/abs/2606.01442" target="_blank" rel="noopener"><em>The Value of Spike Timing</em></a> won the <strong>Best Student Paper Award at IEEE CogMI 2026</strong>.</p></li>
+            <li><time>Nov 2026</time><p><em>Shortcut Learning in Early Intrusion Detection</em>, with Michele Guida and colleagues at Roma Tre, won the <strong>Best Student Paper Award at IEEE TPS 2026</strong>.</p></li>
             <li><time>2026</time><p><a href="https://arxiv.org/abs/2606.18325" target="_blank" rel="noopener"><em>Agentra</em></a> (first author) and <a href="https://arxiv.org/abs/2603.09134" target="_blank" rel="noopener"><em>AgenticCyOps</em></a> accepted at <strong>ICMLA 2026</strong>.</p></li>
             <li><time>2026</time><p><a href="https://arxiv.org/abs/2610.07657" target="_blank" rel="noopener"><em>Where Rules End and Judges Begin</em></a> accepted at the <strong>AIDC '26 workshop</strong> at ACSAC 2026.</p></li>
             <li><time>2026</time><p><a href="https://arxiv.org/abs/2606.01442" target="_blank" rel="noopener"><em>The Value of Spike Timing</em></a> accepted at <strong>IEEE CogMI 2026</strong>.</p></li>
@@ -305,7 +338,7 @@
         <div class="pgrid">
           <a class="ptile reveal" href="#bio"><span class="ptile__num">01</span><strong>Bio</strong><span>Short and full versions, ready to copy</span></a>
           <a class="ptile reveal" href="cv.html"><span class="ptile__num">02</span><strong>Vitae</strong><span>Full curriculum vitae, with PDF</span></a>
-          <a class="ptile reveal" href="#publications"><span class="ptile__num">03</span><strong>Publications</strong><span>11 papers with live citation counts</span></a>
+          <a class="ptile reveal" href="#publications"><span class="ptile__num">03</span><strong>Publications</strong><span>12 papers, 2 Best Student Paper Awards</span></a>
           <a class="ptile reveal" href="research.html"><span class="ptile__num">04</span><strong>Research statement</strong><span>AI for healthcare enterprise cybersecurity</span></a>
           <a class="ptile reveal" href="#service"><span class="ptile__num">05</span><strong>Service &amp; reviewing</strong><span>Peer review and department service</span></a>
           <a class="ptile reveal" href="teaching.html#autobiography"><span class="ptile__num">06</span><strong>Teaching autobiography</strong><span>Starter questions and my teaching toolkit</span></a>
@@ -473,7 +506,7 @@
           </button>
 
           <button class="project reveal" aria-haspopup="dialog" data-dialog="dlg-snn">
-            <span class="project__tag">First author · IEEE CogMI 2026</span>
+            <span class="project__tag">First author · IEEE CogMI 2026 · Best Student Paper</span>
             <span class="project__metric">27 <i>×</i> 4</span>
             <span class="project__label">SNN configurations benchmarked across intrusion-detection datasets</span>
             <span class="project__title">The Value of Spike Timing</span>
@@ -517,7 +550,7 @@
 
       <dialog class="dialog" id="dlg-snn" aria-labelledby="dlg-snn-t">
         <button class="icon-btn dialog__close" aria-label="Close"><svg aria-hidden="true" focusable="false" class="icon"><use href="#i-close"/></svg></button>
-        <p class="dialog__tag">First author · IEEE CogMI 2026</p>
+        <p class="dialog__tag">First author · IEEE CogMI 2026 · Best Student Paper Award</p>
         <h3 id="dlg-snn-t">The Value of Spike Timing: A Leakage-Resistant Benchmark of SNN Design Choices for Network Intrusion Detection</h3>
         <h4>The problem</h4>
         <p>Spiking neural networks are a promising, energy-efficient option for intrusion detection, but it isn't clear which design choices actually matter. Results can also look better than they are when training and test data aren't cleanly separated.</p>
@@ -567,10 +600,10 @@
         </header>
 
         <div class="filters reveal" role="group" aria-label="Filter publications">
-          <button class="filter is-active" data-filter="all" aria-pressed="true">All <span>11</span></button>
+          <button class="filter is-active" data-filter="all" aria-pressed="true">All <span>12</span></button>
           <button class="filter" data-filter="first" aria-pressed="false">First author <span>4</span></button>
           <button class="filter" data-filter="journal" aria-pressed="false">Journal <span>1</span></button>
-          <button class="filter" data-filter="conference" aria-pressed="false">Conference &amp; workshop <span>7</span></button>
+          <button class="filter" data-filter="conference" aria-pressed="false">Conference &amp; workshop <span>8</span></button>
           <button class="filter" data-filter="review" aria-pressed="false">Under review <span>3</span></button>
         </div>
 
@@ -603,12 +636,21 @@
             </div>
           </li>
 
+          <li class="pub reveal" data-type="conference">
+            <span class="pub__year">2026</span>
+            <div class="pub__body">
+              <h3>Shortcut Learning in Early Intrusion Detection: Header Fingerprints Across Four Datasets</h3>
+              <p class="pub__authors">M. Guida, S. Iannucci, <b>R. Patel</b>, S. Rahimi, S. Mittal, P. Merialdo</p>
+              <p class="pub__meta"><span class="badge badge--conf">Conference</span> IEEE TPS 2026 <a href="https://github.com/micheleguidaa/early-nids-artifact" target="_blank" rel="noopener">Code</a> <span class="badge badge--award"><svg aria-hidden="true" focusable="false" class="icon"><use href="#i-award"/></svg> Best Student Paper</span></p>
+            </div>
+          </li>
+
           <li class="pub reveal" data-type="conference first">
             <span class="pub__year">2026</span>
             <div class="pub__body">
               <h3><a href="https://arxiv.org/abs/2606.01442" target="_blank" rel="noopener">The Value of Spike Timing: A Leakage-Resistant Benchmark of SNN Design Choices for Network Intrusion Detection</a></h3>
               <p class="pub__authors"><b>R. Patel</b>, S. Mitra, D. Amebley, T. Akinrele, S. Dibbo, S. Mittal, S. Rahimi</p>
-              <p class="pub__meta"><span class="badge badge--conf">Conference</span> IEEE CogMI 2026 (accepted) <span class="badge badge--first">First author</span></p>
+              <p class="pub__meta"><span class="badge badge--conf">Conference</span> IEEE CogMI 2026 <span class="badge badge--first">First author</span> <span class="badge badge--award"><svg aria-hidden="true" focusable="false" class="icon"><use href="#i-award"/></svg> Best Student Paper</span></p>
             </div>
           </li>
 
@@ -901,6 +943,6 @@
 
   <div class="toast" id="toast" aria-hidden="true"></div>
 
-  <script src="assets/js/main.js?v=20261029h" defer></script>
+  <script src="assets/js/main.js?v=20261110a" defer></script>
 </body>
 </html>

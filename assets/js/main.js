@@ -274,6 +274,8 @@
         scholarTargets.forEach(function (el) {
           var v = d[el.getAttribute('data-scholar')];
           if (typeof v !== 'number') return;
+          // The site may list papers Scholar hasn't indexed yet; never show less than the page does.
+          v = Math.max(v, parseInt(el.getAttribute('data-count'), 10) || 0);
           el.setAttribute('data-count', v);
           if (!el.dataset.animating) el.textContent = v + (el.getAttribute('data-suffix') || '');
         });
